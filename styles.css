@@ -1,0 +1,56 @@
+/* ENTIRE PAGE */
+* {
+  border: .15em solid white;
+}
+
+body {
+  background: rgb(207,137,38);
+  background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
+  margin: 0;
+}
+
+
+/* HEADER */
+h1 {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+
+/* MAIN PAGE */
+main{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  height: 80vh;
+  width: 100vw;
+}
+
+
+/* CENTER  */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  margin: 1em;
+  height: 80%;
+  width: 50%;
+}
+
+/* GAME BOARD */
+table {
+  height: 86%;
+  width: 86%;
+}
+
+table > tbody > tr > td {
+  text-align: center;
+  color: white;
+}
+
+/* LEFT SIDEBAR  */
+
+/* RIGHT SIDEBAR */

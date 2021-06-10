@@ -65,13 +65,13 @@ table {
 .col-2 {
   border-left: .5em solid navy;
   border-right: .5em solid navy;
-  padding: .5em;
+  /* padding: .5em; */
 }
 
 .row-2 {
   border-top: .5em solid navy;
   border-bottom: .5em solid navy;
-  padding: .5em;
+  /* padding: .5em; */
 }
 
 
@@ -80,7 +80,8 @@ table > tbody > tr > td {
   width: 30%;
   text-align: center;
   color: navy;
-  margin: auto;
+  padding: 1em;
+  margin: 1em;
 }
 
 /* LEFT & RIGHT SIDEBAR  */

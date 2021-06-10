@@ -15,34 +15,3 @@ var newGame = new Game();
 
 // EVENTLISTENERS
 gameBoard.addEventListener('click', showToken);
-
-function showToken() {
-  if (event.target.id === 'sq1') {
-    square1.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq2') {
-    square2.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq3') {
-    square3.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq4') {
-    square4.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq5') {
-    square5.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq6') {
-    square6.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq7') {
-    square7.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq8') {
-    square8.innerHTML = 'YES!';
-  } else
-  if (event.target.id === 'sq9') {
-    square9.innerHTML = 'YES!';
-  }
-
-}

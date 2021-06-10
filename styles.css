@@ -17,8 +17,31 @@ h1 {
   text-align: center;
   margin: 1em 0em .25em 0em;
   width: 100%;
+  animation-name: popin;
+  animation-duration: 1s;
 }
-
+/* #tic {
+  animation-name: popin;
+  animation-duration: 1s;
+}
+#tac {
+  animation-name: popin;
+  animation-duration: 1.5s;
+}
+#toe {
+  animation-name: popin;
+  animation-duration: 2s;
+} */
+@keyframes popin {
+  from {
+    z-index: 0;
+    opacity: 0%
+  }
+  to   {
+    z-index: 100;
+    opacity: 100%
+  }
+}
 
 /* MAIN PAGE */
 main{
@@ -101,6 +124,7 @@ table > tbody > tr > td {
 
 .player {
   font-size: 60px;
+font-family: 'Ruslan Display', cursive;
   color: navy;
   padding: .1em;
   margin: .5em 0em 0em 0em;

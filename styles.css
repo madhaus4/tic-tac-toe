@@ -1,6 +1,7 @@
 /* ENTIRE PAGE */
 * {
-  border: .15em solid white;
+  font-family: 'Work Sans', sans-serif;
+  /* border: .15em solid white; */
 }
 
 body {
@@ -12,8 +13,9 @@ body {
 
 /* HEADER */
 h1 {
+  font-family: 'Rock Salt', cursive;
   text-align: center;
-  margin: 0;
+  margin: 1em 0em .25em 0em;
   width: 100%;
 }
 
@@ -21,7 +23,7 @@ h1 {
 /* MAIN PAGE */
 main{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: row;
   height: 80vh;
@@ -30,27 +32,79 @@ main{
 
 
 /* CENTER  */
-.center-container {
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1em;
   margin: 1em;
   height: 80%;
+}
+
+.center-container {
+  margin: 1em 0em 1em 0em;
   width: 50%;
+}
+
+.board-title {
+  padding: .25em;
+  margin: 0em 0em 1em 0em
 }
 
 /* GAME BOARD */
 table {
+  /* border: .15em solid white; */
+
+  padding: .25em;
+  margin: auto;
   height: 86%;
   width: 86%;
+  border-collapse: collapse;
 }
+
+.col-2 {
+  border-left: .5em solid navy;
+  border-right: .5em solid navy;
+  padding: .5em;
+}
+
+.row-2 {
+  border-top: .5em solid navy;
+  border-bottom: .5em solid navy;
+  padding: .5em;
+}
+
 
 table > tbody > tr > td {
+  height: 30%;
+  width: 30%;
   text-align: center;
-  color: white;
+  color: navy;
+  margin: auto;
 }
 
-/* LEFT SIDEBAR  */
+/* LEFT & RIGHT SIDEBAR  */
+.player-container {
+  /* border: .15em solid white; */
+  width: 15%;
+}
 
-/* RIGHT SIDEBAR */
+.left {
+  margin-right: 0;
+}
+
+.right {
+  /* padding-right: 1em; */
+  margin-left: 0;
+}
+
+.player {
+  font-size: 60px;
+  color: navy;
+  padding: .1em;
+  margin: .5em 0em 0em 0em;
+}
+
+p {
+  color: white;
+}

@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.player1 = new Player('player1', 'X');
+    this.player1 = new Player('player1', 'assets/player1-icon.png');
     this.player2 = new Player('player2', 'O');
     this.currentPlayer = null;
     this.hasWinner = false;

@@ -13,15 +13,22 @@ body {
 
 /* HEADER */
 h1 {
-  font-family: 'Rock Salt', cursive;
-  text-align: center;
-  font-size: 40px;
+  display: flex;
+  justify-content: center;
   margin: .1em 0em .1em 0em;
   width: 100%;
-  animation-name: popin;
-  animation-duration: 1s;
+  /* animation-name: popin; */
+  /* animation-duration: 1s; */
 }
-/* #tic {
+
+h1 > p {
+  font-family: 'Rock Salt', cursive;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+  padding: .15em;
+}
+#tic {
   animation-name: popin;
   animation-duration: 1s;
 }
@@ -32,7 +39,7 @@ h1 {
 #toe {
   animation-name: popin;
   animation-duration: 2s;
-} */
+}
 @keyframes popin {
   from {
     z-index: 0;

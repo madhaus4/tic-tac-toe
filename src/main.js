@@ -26,10 +26,34 @@ function chooseSquare() {
 
 function displayPlayerToken() {
   if (event.target.id === 'sq1') {
-    console.log(event.target);
-    square1.innerHTML = gameBoard[player.token];
+    square1.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq2') {
+    square2.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq3') {
+    square3.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq4') {
+    square4.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq5') {
+    square5.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq6') {
+    square6.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq7') {
+    square7.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq8') {
+    square8.innerHTML = currentGame.player1.token;
+  }
+  if (event.target.id === 'sq9') {
+    square9.innerHTML = currentGame.player1.token;
   }
 }
+
 
 
 

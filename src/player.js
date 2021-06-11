@@ -1,6 +1,6 @@
 class Player {
-  constructor(player, token) {
-    this.id = player
+  constructor(id, token) {
+    this.id = id
     this.token = token;
     this.selections = [];
     this.wins = 0;

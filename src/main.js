@@ -14,7 +14,22 @@ var currentGame = new Game();
 // BUTTONS
 
 // EVENTLISTENERS
-gameBoard.addEventListener('click', showToken);
+gameBoard.addEventListener('click', displayPlayerToken);
+
+function chooseSquare() {
+  for (var i = 0; i < currentGame.gameBoard.length; i++) {
+    if (currentGame.gameBoard[i] === event.target.id) {
+      event.target.id.innerHTML = 'YO';
+    }
+  }
+}
+
+function displayPlayerToken() {
+  if (event.target.id === 'sq1') {
+    console.log(event.target);
+    square1.innerHTML = gameBoard[player.token];
+  }
+}
 
 
 

@@ -2,6 +2,7 @@ class Player {
   constructor(player, token) {
     this.id = player
     this.token = token;
+    this.choice = [];
     this.wins = 0;
   }
 

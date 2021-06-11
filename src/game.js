@@ -2,41 +2,50 @@ class Game {
   constructor() {
     this.player1 = new Player('player1', 'X');
     this.player2 = new Player('player2', 'O');
-    this.currentPlayer = null;
+    // this.currentPlayer = null;
     this.hasWinner = false;
     this.isDraw = false;
     this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
+    this.winCombinations = [
+      ['sq1', 'sq2', 'sq3'], ['sq4', 'sq5', 'sq6'],
+      ['sq7', 'sq8', 'sq9'], ['sq1', 'sq4', 'sq7'],
+      ['sq2', 'sq5', 'sq8'], ['sq3', 'sq6', 'sq9'],
+      ['sq1', 'sq5', 'sq9'], ['sq3', 'sq5', 'sq7']
+    ];
   }
 
-  winConditions() {
-    if (['sq1', 'sq2', 'sq3'] || ['sq4', 'sq5', 'sq6'] ||
-      ['sq7', 'sq8', 'sq9'] || ['sq1', 'sq4', 'sq7'] ||
-      ['sq2', 'sq5', 'sq8'] || ['sq3', 'sq6', 'sq9'] ||
-      ['sq1', 'sq5', 'sq9'] || ['sq3', 'sq5', 'sq7']) {
-      this.hasWinner = true;
-    }
-  }
+  // winConditions() {
+  //   if (['sq1', 'sq2', 'sq3'] || ['sq4', 'sq5', 'sq6'] ||
+  //     ['sq7', 'sq8', 'sq9'] || ['sq1', 'sq4', 'sq7'] ||
+  //     ['sq2', 'sq5', 'sq8'] || ['sq3', 'sq6', 'sq9'] ||
+  //     ['sq1', 'sq5', 'sq9'] || ['sq3', 'sq5', 'sq7']) {
+  //     this.hasWinner = true;
+  //   }
+  // }
 
   checkforWin(player) {
     for (var i = 0; i < this.gameBoard.length; i ++) {
-      if (this.gameBoard[i] === player.choice) {
+      if (this.gameBoard[i] === event.target.id) {
         player.selections.push(this.gameBoard[i]);
       }
     }
-    if (player.selections.includes(a winning combination)) {
-      this.hasWinner = true;
-    }
-  }
 
-// ***** WHOSE TURN IS IT?  *****
-  updatePlayerTurn() {
-    if (this.player1 has selected a square) {
-      prompt this.player2 to select square
-    } else {
-      prompt player1 to select square
+    for (var i = 0; i < this.winCombinations.length; i++) {
+      if (player.selections.includes(this.winCombinations[i])) {
+        this.hasWinner = true;
+      }
     }
   }
 }
+// ***** WHOSE TURN IS IT?  *****
+//   updatePlayerTurn() {
+//     if (this.player1 has selected a square) {
+//       prompt this.player2 to select square
+//     } else {
+//       prompt player1 to select square
+//     }
+//   }
+// }
 
 // *****  DETERMINING A WINNER  *****
 

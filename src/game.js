@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.player1 = new Player('player1', 'assets/player1-icon.png');
+    this.player1 = new Player('player1', 'X');
     this.player2 = new Player('player2', 'O');
     this.currentPlayer = null;
     this.hasWinner = false;
@@ -15,30 +15,33 @@ class Game {
       ['sq1', 'sq5', 'sq9'] || ['sq3', 'sq5', 'sq7']) {
       this.hasWinner = true;
     }
+  }
 
+  checkforWin(player) {
+    for (var i = 0; i < this.gameBoard.length; i ++) {
+      if (this.gameBoard[i] === player.choice) {
+        player.selections.push(this.gameBoard[i]);
+      }
+    }
+    if (player.selections.includes(a winning combination)) {
+      this.hasWinner = true;
+    }
+  }
+
+// ***** WHOSE TURN IS IT?  *****
+  updatePlayerTurn() {
+    if (this.player1 has selected a square) {
+      prompt this.player2 to select square
+    } else {
+      prompt player1 to select square
+    }
   }
 }
-
-// *****  I AM A PLAYER  *****
-  // who goes first???
-    // new games start with player1 but if its a persisting game, whoever has won the previous?
-
-  // I click a square, my token appears
-      // board title changes to say it's the other player's   turn
-      // then other user selects a square
-        // board title changes to say it's the other player's turn
-        // repeat until game is won or there is a draw
-
-    // when a game is won, 'it's ___ turn!', will display 'it's "winners" turn!'
-      // 'wins' will update on player who won
-      // game board will automatically reset after a few seconds
-
-    // if game is a draw, no one wins,  board title will say it's a draw, then reset after a frew seconds
 
 // *****  DETERMINING A WINNER  *****
 
 
-// ***** WHOE TURN IS IT?  *****
+
 
 
 // *****  KEEPING TRACK OF SCORE  *****
@@ -48,7 +51,15 @@ class Game {
   // what o's are out and where are they
   // what x's are out and where are they
 
-
 // game board data
 
 // *****  WHAT IS MY APPROACH?????  *****
+
+
+// *****  I AM THE GAME  *****
+  // on page load, I am visible to the user
+  // when a user selects a square, I need to add the ID of that square into an array, maybe? >> this saves it until one of the player's arrays include a winning combination
+
+  // when a user selects a square, I increment turn's taken by each player and tell the other player it's their turn
+
+  // when a player has a winning combination, trigger some DOM shit, then reset the board & update player wins

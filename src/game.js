@@ -1,7 +1,9 @@
 class Game {
   constructor() {
-    this.player1 = new Player('player1', 'X');
-    this.player2 = new Player('player2', 'O');
+    // this.player = [
+    this.player1 = new Player('1', 'X'),
+    this.player2 = new Player('2', 'O')
+    // ];
     // this.currentPlayer = null;
     this.hasWinner = false;
     this.isDraw = false;
@@ -22,16 +24,20 @@ class Game {
         player.selections.push(this.gameBoard[i]);
       }
     }
-    // this updates winner to true if one of the player's selections includes a winning combination
+
+    // this checks if the player's selections includes a winning combination & updates hasWinner to true
     for (var i = 0; i < this.winCombinations.length; i++) {
       if (player.selections.includes(this.winCombinations[i])) {
         this.hasWinner = true;
       }
     }
   }
-}
+  tallyWins() {
+
+  }
 // ***** WHOSE TURN IS IT?  *****
   updatePlayerTurn() {
+    // this changes players turn from true to false and false to true
     if (this.player1.turn) {
       this.player1.turn = true;
       this.player2.turn = false;
@@ -40,15 +46,25 @@ class Game {
       this.player2.turn = true;
     }
   }
+
+  // *****  KEEPING TRACK OF SCORE  *****
+  updateScore(player) {
+    if (this.hasWinner) {
+      player.wins += 1;
+    }
+    // reset game board
+  }
+
+  // *****  HOW MANY TOKENS ARE ON THE BOARD  *****
+  // what o's are out and where are they
+  // what x's are out and where are they
+
+
+
 }
 
 
-// *****  KEEPING TRACK OF SCORE  *****
 
-
-// *****  HOW MANY TOKENS ARE ON THE BOARD  *****
-  // what o's are out and where are they
-  // what x's are out and where are they
 
 // game board data
 

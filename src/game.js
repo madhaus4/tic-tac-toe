@@ -1,10 +1,8 @@
 class Game {
   constructor() {
-    // this.player = [
-    this.player1 = new Player('1', 'X'),
-    this.player2 = new Player('2', 'O')
-    // ];
-    // this.currentPlayer = null;
+    this.player1 = new Player('1', 'X', true);
+    this.player2 = new Player('2', 'O', false);
+    this.currentPlayer = this.player1;
     this.hasWinner = false;
     this.isDraw = false;
     this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
@@ -17,14 +15,16 @@ class Game {
   }
 
 // *****  DETERMINING A WINNER  *****
-  checkforWin(player) {
+  collectSquares() {
     // this adds a square ID into the player's selections array
     for (var i = 0; i < this.gameBoard.length; i ++) {
       if (this.gameBoard[i] === event.target.id) {
         player.selections.push(this.gameBoard[i]);
       }
     }
+  }
 
+  checkforWin() {
     // this checks if the player's selections includes a winning combination & updates hasWinner to true
     for (var i = 0; i < this.winCombinations.length; i++) {
       if (player.selections.includes(this.winCombinations[i])) {
@@ -32,19 +32,27 @@ class Game {
       }
     }
   }
+
   tallyWins() {
 
   }
+
 // ***** WHOSE TURN IS IT?  *****
   updatePlayerTurn() {
     // this changes players turn from true to false and false to true
     if (this.player1.turn) {
-      this.player1.turn = true;
-      this.player2.turn = false;
-    } else if (this.player2.turn) {
       this.player1.turn = false;
       this.player2.turn = true;
+      this.updateCurrentPlayer(this.player2)
+    } else if (this.player2.turn) {
+      this.player1.turn = true;
+      this.player2.turn = false;
+      this.updateCurrentPlayer(this.player1)
     }
+  }
+
+  updateCurrentPlayer(player) {
+    this.currentPlayer = player;
   }
 
   // *****  KEEPING TRACK OF SCORE  *****
@@ -60,8 +68,8 @@ class Game {
   // what x's are out and where are they
 
 
-
 }
+
 
 
 

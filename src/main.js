@@ -1,61 +1,30 @@
 // QUERYSELECTORS
 var gameBoard = document.getElementById('centerContainer');
-var square1 = document.getElementById('sq1');
-var square2 = document.getElementById('sq2');
-var square3 = document.getElementById('sq3');
-var square4 = document.getElementById('sq4');
-var square5 = document.getElementById('sq5');
-var square6 = document.getElementById('sq6');
-var square7 = document.getElementById('sq7');
-var square8 = document.getElementById('sq8');
-var square9 = document.getElementById('sq9');
+var sq1 = document.getElementById('sq1');
+var sq2 = document.getElementById('sq2');
+var sq3 = document.getElementById('sq3');
+var sq4 = document.getElementById('sq4');
+var sq5 = document.getElementById('sq5');
+var sq6 = document.getElementById('sq6');
+var sq7 = document.getElementById('sq7');
+var sq8 = document.getElementById('sq8');
+var sq9 = document.getElementById('sq9');
 
 var currentGame = new Game();
 // BUTTONS
 
 // EVENTLISTENERS
-gameBoard.addEventListener('click', displayPlayerToken);
+gameBoard.addEventListener('click', chooseSquare);
 
 function chooseSquare() {
+  var idTarget = event.target.id;
   for (var i = 0; i < currentGame.gameBoard.length; i++) {
-    if (currentGame.gameBoard[i] === event.target.id) {
-      event.target.id.innerHTML = 'YO';
+    if (currentGame.gameBoard[i] === idTarget) {
+      eval(idTarget).innerHTML = currentGame.currentPlayer.token;
     }
   }
+  currentGame.updatePlayerTurn();
 }
-
-function displayPlayerToken() {
-  if (event.target.id === 'sq1') {
-    square1.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq2') {
-    square2.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq3') {
-    square3.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq4') {
-    square4.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq5') {
-    square5.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq6') {
-    square6.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq7') {
-    square7.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq8') {
-    square8.innerHTML = currentGame.player1.token;
-  }
-  if (event.target.id === 'sq9') {
-    square9.innerHTML = currentGame.player1.token;
-  }
-}
-
-
-
 
 
 // *****  I AM A PLAYER  *****

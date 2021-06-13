@@ -59,25 +59,11 @@ function disableClick() {
   }
 }
 
-// clear gameboard
-// display winner at the top of page
-
-  // sq1.innerHTML = '';
-  // sq2.innerHTML = '';
-  // sq3.innerHTML = '';
-  // sq4.innerHTML = '';
-  // sq5.innerHTML = '';
-  // sq6.innerHTML = '';
-  // sq7.innerHTML = '';
-  // sq8.innerHTML = '';
-  // sq9.innerHTML = '';
-
 function resetGame() {
   if (currentGame.hasWinner || currentGame.hasDraw) {
     timeOut();
     currentGame.resetGameBoard();
     gameBoard.addEventListener('click', runGame);
-    // event.preventDefault(event);
   }
 }
 

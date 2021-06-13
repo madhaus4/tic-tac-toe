@@ -21,18 +21,18 @@ gameBoard.addEventListener('click', runGame);
 
 
 function runGame() {
-  chooseSquare();
   currentGame.collectSquares(currentGame.currentPlayer);
+  renderToken();
+  currentGame.updateGameBoard();
   currentGame.checkforWin();
   currentGame.checkForDraw();
   disableClick();
   currentGame.updatePlayerTurn();
   updateBoardTitle();
-  console.log(currentGame);
   resetGame();
 }
 
-function chooseSquare() {
+function renderToken() {
   var idTarget = event.target.id;
   for (var i = 0; i < currentGame.gameBoard.length; i++) {
     if (currentGame.gameBoard[i] === idTarget) {
@@ -59,7 +59,7 @@ function updateBoardTitle() {
   }
 }
 
-function disableClick(event) {
+function disableClick() {
   if (currentGame.hasWinner || currentGame.counter === 9) {
     gameBoard.removeEventListener('click', runGame);
   }

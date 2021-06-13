@@ -1,5 +1,6 @@
 // QUERYSELECTORS
 var gameBoard = document.getElementById('centerContainer');
+var boardTitle = document.getElementById('boardTitle');
 var sq1 = document.getElementById('sq1');
 var sq2 = document.getElementById('sq2');
 var sq3 = document.getElementById('sq3');
@@ -14,7 +15,15 @@ var currentGame = new Game();
 // BUTTONS
 
 // EVENTLISTENERS
-gameBoard.addEventListener('click', chooseSquare);
+gameBoard.addEventListener('click', runGame);
+
+function runGame() {
+  chooseSquare();
+  currentGame.collectSquares(currentGame.currentPlayer);
+  currentGame.checkforWin();
+  currentGame.updatePlayerTurn();
+  updateBoardTitle();
+}
 
 function chooseSquare() {
   var idTarget = event.target.id;
@@ -23,10 +32,32 @@ function chooseSquare() {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
     }
   }
-  currentGame.collectSquares(currentGame.currentPlayer);
-  currentGame.checkforWin();
-  currentGame.updatePlayerTurn();
+
 }
+// when player takes a turn, show whose turn it is next
+function updateBoardTitle() {
+  if (currentGame.player1.turn) {
+    boardTitle.innerText = `It's O turn!!!`;
+  } else if (currentGame.player2.turn) {
+      boardTitle.innerText = `It's X turn!!!`;
+  }
+}
+
+// clear gameboard
+// display winner at the top of page
+function resetGameBoard() {
+  sq1.innerHTML = '';
+  sq2.innerHTML = '';
+  sq3.innerHTML = '';
+  sq4.innerHTML = '';
+  sq5.innerHTML = '';
+  sq6.innerHTML = '';
+  sq7.innerHTML = '';
+  sq8.innerHTML = '';
+  sq9.innerHTML = '';
+}
+
+
 
 
 // *****  I AM A PLAYER  *****

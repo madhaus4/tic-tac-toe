@@ -18,6 +18,7 @@ class Game {
 // *****  DETERMINING A WINNER  *****
   collectSquares(player) {
     // this adds a square ID into the player's selections array
+    this.counter += 1;
     for (var i = 0; i < this.gameBoard.length; i ++) {
       if (this.gameBoard[i] === event.target.id) {
         player.selections.push(this.gameBoard[i]);
@@ -28,16 +29,51 @@ class Game {
   checkforWin() {
     // this checks if the player's selections includes a winning combination & updates hasWinner to true & increases players wins
     for (var i = 0; i < this.winCombinations.length; i++) {
-      var combinations = this.winCombinations[i];
-      if (combinations.every(elem => this.currentPlayer.selections.includes(elem))) {
+      var combination = this.winCombinations[i];
+      if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
         this.currentPlayer.wins += 1;
-        event.preventDefault();
         console.log(this.hasWinner);
-        console.log(this.currentPlayer.wins);
+        // console.log('player', this.currentPlayer);
+        // console.log('wins', this.currentPlayer.wins);
       }
     }
   }
+
+  checkForDraw() {
+    if (!this.hasWinner) {
+      this.isDraw = true;
+    }
+  }
+
+  resetGameBoard() {
+  // when you add a winner property >> reset winner****
+    this.player1.selections = [];
+    this.player2.selections = [];
+    this.currentPlayer = this.player1;
+    this.hasWinner = false;
+    this.isDraw = false;
+    this.counter = 0;
+  }
+
+// disable the ability to click / win anymore games once a winner has been found
+// use a set Timeout to reset the game
+
+// DONT LET USER CLICK ANY MORE SQUARES
+  // disableClick() {
+  //   if (this.hasWinner) {
+  //     ('#centerContainer').click(function() {
+  //       ('td').off('click');
+  //     });
+  //
+  //     ('#centerContainer').bind('click', function(event) {
+  //       event.preventDefault();
+  //     });
+  //   }
+  // }
+
+
+
 
   // >>>YOU CHECK FOR PLAYER WINS
 // each time a player selects a square, compare the player selections array to the win combos array

@@ -45,18 +45,21 @@ function updateBoardTitle() {
   if (!currentGame.hasWinner) {
       boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!!!`;
   }
+  if (currentGame.hasWinner) {
+      boardTitle.innerHTML = ` ${currentGame.currentPlayer.token} WINS!!!`;
+  }
+  if (currentGame.isDraw && currentGame.counter <= 10) {
+    boardTitle.innerText = 'It\'s a draw! Please play again!';
+  }
 }
-//
-//   if (currentGame.hasWinner && currentGame.currentPlayer.id === '2') {
-//     boardTitle.innerText = `X wins!!!`;
-//   } else if (currentGame.hasWinner && currentGame.currentPlayer.id === '1') {
-//     boardTitle.innerText = `O wins!!!`;
-//   }
-//
-//   if (currentGame.isDraw && !currentGame.hasWinner) {
-//     boardTitle.innerText = 'It\'s a draw! Please play again!';
-//   }
-// }
+
+  // if (currentGame.hasWinner && currentGame.currentPlayer.id === '2') {
+  //   boardTitle.innerText = `X wins!!!`;
+  // } else if (currentGame.hasWinner && currentGame.currentPlayer.id === '1') {
+  //   boardTitle.innerText = `O wins!!!`;
+  // }
+
+
 
 function resetGame() {
   if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
@@ -69,7 +72,7 @@ function timeOut() {
     clearGameBoard();
     currentGame = new Game();
     // currentGame.resetGameBoard();
-    // boardTitle.innerText = `It's X's turn!!!`;
+    boardTitle.innerText = `It's X's turn!!!`;
     enableClick();
     // currentGame.updatePlayerTurn();
   }, 3000);

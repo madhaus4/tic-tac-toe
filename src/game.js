@@ -83,39 +83,3 @@ class Game {
   // when a user selects a square, I increment turn's taken by each player and tell the other player it's their turn
 
   // when a player has a winning combination, trigger some DOM shit, then reset the board & update player wins
-
-
-
-
-
-    //   for (var i = 0; i < this.winCombinations.length; i++) {
-    //     var combo = this.winCombinations[i];
-    //     for (var i = 0; i < combo.length; i++) {
-    //       if (this.currentPlayer.selections.includes(combo[i]) && this.currentPlayer.selections.includes(combo[(i + 1)]) &&
-    //       this.currentPlayer.selections.includes(combo[(i + 2)])) {
-    //         this.hasWinner = true;
-    //       }
-    //     }
-    //     return;
-    //   }
-    // }
-          // if (!combo.includes(this.currentPlayer.selections[i])) {
-          // } else
-    //       if (combo.includes(this.currentPlayer.selections[i])) {
-    //          // && this.counter === 2) {
-    //         // this.hasWinner = true;
-    //       }
-    //       // else
-    //       if (this.counter === 3) {
-    //         this.counter = 0;
-    //       }
-    //     }
-    //     return;
-    //   }
-    // }
-        // var stringedSquares = this.currentPlayer.selections
-        // .toString();
-        // I think I really want the reverse logic >> if selections includes a win combo...
-        // if (stringedSquares.includes(combo)) {
-        //   this.hasWinner = true;
-        //   this.currentPlayer.wins += 1;

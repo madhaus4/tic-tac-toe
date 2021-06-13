@@ -23,6 +23,8 @@ function chooseSquare() {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
     }
   }
+  currentGame.collectSquares(currentGame.currentPlayer);
+  currentGame.checkforWin();
   currentGame.updatePlayerTurn();
 }
 

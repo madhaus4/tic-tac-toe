@@ -16,18 +16,17 @@ var currentGame = new Game();
 // BUTTONS
 
 // EVENTLISTENERS
-// window.addEventListener('load', begin);
 gameBoard.addEventListener('click', runGame);
 
 
 function runGame() {
+  // console.log(currentGame);
   currentGame.collectSquares(currentGame.currentPlayer);
   renderToken();
   currentGame.updateGameBoard();
   currentGame.checkforWin();
   currentGame.checkForDraw();
   disableClick();
-  currentGame.updatePlayerTurn();
   updateBoardTitle();
   resetGame();
 }
@@ -35,27 +34,50 @@ function runGame() {
 function renderToken() {
   var idTarget = event.target.id;
   for (var i = 0; i < currentGame.gameBoard.length; i++) {
-    if (currentGame.gameBoard[i] === idTarget) {
+    if (currentGame.gameBoard[i] === idTarget && currentGame.gameBoard.includes(idTarget)) {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
+      currentGame.updatePlayerTurn();
     }
   }
 }
 
 function updateBoardTitle() {
-  if (!this.hasWinner && currentGame.player1.turn) {
-    boardTitle.innerText = `It's X's turn!!!`;
-  } else if (!this.hasWinner && currentGame.player2.turn) {
-    boardTitle.innerText = `It's O's turn!!!`;
+  if (!currentGame.hasWinner) {
+      boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!!!`;
   }
+}
+//
+//   if (currentGame.hasWinner && currentGame.currentPlayer.id === '2') {
+//     boardTitle.innerText = `X wins!!!`;
+//   } else if (currentGame.hasWinner && currentGame.currentPlayer.id === '1') {
+//     boardTitle.innerText = `O wins!!!`;
+//   }
+//
+//   if (currentGame.isDraw && !currentGame.hasWinner) {
+//     boardTitle.innerText = 'It\'s a draw! Please play again!';
+//   }
+// }
 
-  if (currentGame.hasWinner && currentGame.currentPlayer.id === '2') {
-    boardTitle.innerText = `X wins!!!`;
-  } else if (currentGame.hasWinner && currentGame.currentPlayer.id === '1') {
-    boardTitle.innerText = `O wins!!!`;
+function resetGame() {
+  if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
+    timeOut();
   }
+}
 
-  if (currentGame.isDraw && !currentGame.hasWinner) {
-    boardTitle.innerText = 'It\'s a draw! Please play again!';
+function timeOut() {
+  setTimeout(function() {
+    clearGameBoard();
+    currentGame = new Game();
+    // currentGame.resetGameBoard();
+    // boardTitle.innerText = `It's X's turn!!!`;
+    enableClick();
+    // currentGame.updatePlayerTurn();
+  }, 3000);
+}
+
+function clearGameBoard() {
+  for (var i = 0; i < gameSpaces.length; i++) {
+    gameSpaces[i].innerHTML = '';
   }
 }
 
@@ -68,28 +90,6 @@ function disableClick() {
 function enableClick() {
   if (!currentGame.hasWinner) {
     gameBoard.addEventListener('click', runGame);
-  }
-}
-
-function resetGame() {
-  if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
-    timeOut();
-  }
-}
-
-function timeOut() {
-  setTimeout(function() {
-    currentGame.resetGameBoard();
-    clearGameBoard();
-    boardTitle.innerText = `It's X's turn!!!`;
-    enableClick();
-    currentGame.updatePlayerTurn();
-  }, 3000);
-}
-
-function clearGameBoard() {
-  for (var i = 0; i < gameSpaces.length; i++) {
-    gameSpaces[i].innerHTML = '';
   }
 }
 

@@ -38,7 +38,6 @@ class Game {
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
         this.currentPlayer.wins += 1;
-        console.log(this.hasWinner);
       }
     }
   }
@@ -49,14 +48,15 @@ class Game {
     }
   }
 
-  resetGameBoard() {
-    this.player1.selections = [];
-    this.player2.selections = [];
-    this.currentPlayer = this.player1;
-    this.hasWinner = false;
-    this.isDraw = false;
-    this.counter = 0;
-  }
+  // resetGameBoard() {
+  //   this.player1.selections = [];
+  //   this.player2.selections = [];
+  //   this.currentPlayer = this.player1;
+  //   this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
+  //   this.hasWinner = false;
+  //   this.isDraw = false;
+  //   this.counter = 0;
+  // }
 
   updatePlayerTurn() {
     if (this.player1.turn) {
@@ -74,12 +74,3 @@ class Game {
     this.currentPlayer = player;
   }
 }
-
-
-// *****  I AM THE GAME  *****
-  // on page load, I am visible to the user
-  // when a user selects a square, I need to add the ID of that square into an array, maybe? >> this saves it until one of the player's arrays include a winning combination
-
-  // when a user selects a square, I increment turn's taken by each player and tell the other player it's their turn
-
-  // when a player has a winning combination, trigger some DOM shit, then reset the board & update player wins

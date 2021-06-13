@@ -21,8 +21,10 @@ function runGame() {
   chooseSquare();
   currentGame.collectSquares(currentGame.currentPlayer);
   currentGame.checkforWin();
+  currentGame.checkForDraw();
   currentGame.updatePlayerTurn();
   updateBoardTitle();
+  disableClick();
 }
 
 function chooseSquare() {
@@ -32,14 +34,25 @@ function chooseSquare() {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
     }
   }
-
 }
-// when player takes a turn, show whose turn it is next
+
 function updateBoardTitle() {
   if (currentGame.player1.turn) {
-    boardTitle.innerText = `It's O turn!!!`;
+    boardTitle.innerText = `It's X turn!!!`;
   } else if (currentGame.player2.turn) {
-      boardTitle.innerText = `It's X turn!!!`;
+    boardTitle.innerText = `It's O turn!!!`;
+  }
+  // SEPERATE INTO 2 FUNCTIONS??
+  if (currentGame.hasWinner) {
+    boardTitle.innerText = `${currentGame.currentPlayer.token} wins!!!`;
+  // } else if (currentGame.isDraw) {
+  //   boardTitle.innerText = 'It\'s a draw! Please play again!';
+  }
+}
+
+function disableClick() {
+  if (currentGame.hasWinner) {
+    gameBoard.removeEventListener('click', runGame);
   }
 }
 

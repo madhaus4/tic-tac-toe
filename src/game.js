@@ -24,6 +24,14 @@ class Game {
     }
   }
 
+  updateGameBoard() {
+    for (var i = 0; i < this.gameBoard.length; i ++) {
+      if (this.gameBoard[i] === event.target.id) {
+        this.gameBoard.splice(i, 1);
+      }
+    }
+  }
+
   checkforWin() {
     for (var i = 0; i < this.winCombinations.length; i++) {
       var combination = this.winCombinations[i];
@@ -39,7 +47,6 @@ class Game {
     if (!this.hasWinner && this.counter === 9) {
       this.isDraw = true;
     }
-    // this.resetGameBoard();
   }
 
   resetGameBoard() {
@@ -67,13 +74,6 @@ class Game {
     this.currentPlayer = player;
   }
 }
-
-
-  // *****  HOW MANY TOKENS ARE ON THE BOARD  *****
-  // what o's are out and where are they
-  // what x's are out and where are they
-
-// *****  WHAT IS MY APPROACH?????  *****
 
 
 // *****  I AM THE GAME  *****

@@ -16,17 +16,19 @@ var currentGame = new Game();
 // BUTTONS
 
 // EVENTLISTENERS
+// window.addEventListener('load', begin);
 gameBoard.addEventListener('click', runGame);
+
 
 function runGame() {
   chooseSquare();
   currentGame.collectSquares(currentGame.currentPlayer);
   currentGame.checkforWin();
   currentGame.checkForDraw();
+  disableClick();
   currentGame.updatePlayerTurn();
   updateBoardTitle();
-  disableClick();
-  console.log('currentGame', currentGame);
+  console.log(currentGame);
   resetGame();
 }
 
@@ -41,37 +43,48 @@ function chooseSquare() {
 
 function updateBoardTitle() {
   if (!this.hasWinner && currentGame.player1.turn) {
-    boardTitle.innerText = `It's X turn!!!`;
+    boardTitle.innerText = `It's X's turn!!!`;
   } else if (!this.hasWinner && currentGame.player2.turn) {
-    boardTitle.innerText = `It's O turn!!!`;
+    boardTitle.innerText = `It's O's turn!!!`;
   }
-  // SEPERATE INTO 2 FUNCTIONS??
-  if (currentGame.hasWinner) {
-    boardTitle.innerText = `${currentGame.currentPlayer.token} wins!!!`;
-  // } else if (currentGame.isDraw) {
-  //   boardTitle.innerText = 'It\'s a draw! Please play again!';
+
+  if (currentGame.hasWinner && currentGame.currentPlayer.id === '2') {
+    boardTitle.innerText = `X wins!!!`;
+  } else if (currentGame.hasWinner && currentGame.currentPlayer.id === '1') {
+    boardTitle.innerText = `O wins!!!`;
+  }
+
+  if (currentGame.isDraw && !currentGame.hasWinner) {
+    boardTitle.innerText = 'It\'s a draw! Please play again!';
   }
 }
 
-function disableClick() {
-  if (currentGame.hasWinner) {
+function disableClick(event) {
+  if (currentGame.hasWinner || currentGame.counter === 9) {
     gameBoard.removeEventListener('click', runGame);
   }
 }
 
-function resetGame() {
-  if (currentGame.hasWinner || currentGame.hasDraw) {
-    timeOut();
-    currentGame.resetGameBoard();
+function enableClick() {
+  if (!currentGame.hasWinner) {
     gameBoard.addEventListener('click', runGame);
+  }
+}
+
+function resetGame() {
+  if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
+    timeOut();
   }
 }
 
 function timeOut() {
   setTimeout(function() {
+    currentGame.resetGameBoard();
     clearGameBoard();
-    updateBoardTitle();
-  }, 5000);
+    boardTitle.innerText = `It's X's turn!!!`;
+    enableClick();
+    currentGame.updatePlayerTurn();
+  }, 3000);
 }
 
 function clearGameBoard() {

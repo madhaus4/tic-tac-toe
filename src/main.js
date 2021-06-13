@@ -1,6 +1,7 @@
 // QUERYSELECTORS
 var gameBoard = document.getElementById('centerContainer');
 var boardTitle = document.getElementById('boardTitle');
+var gameSpaces = document.querySelectorAll('.square');
 var sq1 = document.getElementById('sq1');
 var sq2 = document.getElementById('sq2');
 var sq3 = document.getElementById('sq3');
@@ -25,6 +26,8 @@ function runGame() {
   currentGame.updatePlayerTurn();
   updateBoardTitle();
   disableClick();
+  console.log('currentGame', currentGame);
+  resetGame();
 }
 
 function chooseSquare() {
@@ -37,9 +40,9 @@ function chooseSquare() {
 }
 
 function updateBoardTitle() {
-  if (currentGame.player1.turn) {
+  if (!this.hasWinner && currentGame.player1.turn) {
     boardTitle.innerText = `It's X turn!!!`;
-  } else if (currentGame.player2.turn) {
+  } else if (!this.hasWinner && currentGame.player2.turn) {
     boardTitle.innerText = `It's O turn!!!`;
   }
   // SEPERATE INTO 2 FUNCTIONS??
@@ -58,19 +61,38 @@ function disableClick() {
 
 // clear gameboard
 // display winner at the top of page
-function resetGameBoard() {
-  sq1.innerHTML = '';
-  sq2.innerHTML = '';
-  sq3.innerHTML = '';
-  sq4.innerHTML = '';
-  sq5.innerHTML = '';
-  sq6.innerHTML = '';
-  sq7.innerHTML = '';
-  sq8.innerHTML = '';
-  sq9.innerHTML = '';
+
+  // sq1.innerHTML = '';
+  // sq2.innerHTML = '';
+  // sq3.innerHTML = '';
+  // sq4.innerHTML = '';
+  // sq5.innerHTML = '';
+  // sq6.innerHTML = '';
+  // sq7.innerHTML = '';
+  // sq8.innerHTML = '';
+  // sq9.innerHTML = '';
+
+function resetGame() {
+  if (currentGame.hasWinner || currentGame.hasDraw) {
+    timeOut();
+    currentGame.resetGameBoard();
+    gameBoard.addEventListener('click', runGame);
+    // event.preventDefault(event);
+  }
 }
 
+function timeOut() {
+  setTimeout(function() {
+    clearGameBoard();
+    updateBoardTitle();
+  }, 5000);
+}
 
+function clearGameBoard() {
+  for (var i = 0; i < gameSpaces.length; i++) {
+    gameSpaces[i].innerHTML = '';
+  }
+}
 
 
 // *****  I AM A PLAYER  *****

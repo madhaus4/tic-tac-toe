@@ -1,5 +1,5 @@
 // QUERYSELECTORS
-var gameBoard = document.getElementById('centerContainer');
+var gameBoard = document.getElementById('gameBoard');
 var boardTitle = document.getElementById('boardTitle');
 var gameSpaces = document.querySelectorAll('.square');
 var sq1 = document.getElementById('sq1');
@@ -12,19 +12,24 @@ var sq7 = document.getElementById('sq7');
 var sq8 = document.getElementById('sq8');
 var sq9 = document.getElementById('sq9');
 
+var p1Wins = document.getElementById('numOfWinP1');
+var p2Wins = document.getElementById('numOfWinP2');
+
+
 var currentGame = new Game();
 
 // EVENTLISTENERS
+window.addEventListener('load', getWinsFromStorage);
 gameBoard.addEventListener('click', runGame);
 
 function runGame() {
-  currentGame.checkforWin();
+  console.log(currentGame);
   currentGame.collectSquares(currentGame.currentPlayer);
   renderToken();
   currentGame.updateGameBoard();
-  // currentGame.checkforWin();
-  // currentGame.checkForDraw();
-  // updateBoardTitle();
+  currentGame.checkforWin();
+  currentGame.checkForDraw();
+  updateBoardTitle();
   disableClick();
   resetGame();
 }
@@ -36,15 +41,15 @@ function renderToken() {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
       currentGame.updatePlayerTurn();
     }
-    currentGame.checkforWin();
-    currentGame.checkForDraw();
-    updateBoardTitle();
   }
+  // currentGame.checkforWin();
+  // currentGame.checkForDraw();
+  // updateBoardTitle();
 }
 
 function updateBoardTitle() {
-  if (!currentGame.hasWinner) {
-    boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!!!`;
+  if (!currentGame.hasWinner && currentGame.currentPlayer.turn) {
+    boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!`;
   }
 
   if (currentGame.hasWinner && !currentGame.player1.turn) {
@@ -58,6 +63,18 @@ function updateBoardTitle() {
   }
 }
 
+function getWinsFromStorage() {
+  currentGame.player1.retrieveWinsFromStorage();
+  currentGame.player2.retrieveWinsFromStorage();
+  displayWins();
+}
+
+function displayWins() {
+  p1Wins.innerText = `${currentGame.player1.wins}`;
+  p2Wins.innerText = `${currentGame.player2.wins}`;
+}
+
+
 function resetGame() {
   if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
     timeOut();
@@ -66,13 +83,14 @@ function resetGame() {
 
 function timeOut() {
   setTimeout(function() {
+    getWinsFromStorage();
     clearGameBoard();
     currentGame = new Game();
     // currentGame.resetGameBoard();
     boardTitle.innerText = `It's X's turn!!!`;
     enableClick();
     // currentGame.updatePlayerTurn();
-  }, 3000);
+  }, 2000);
 }
 
 function clearGameBoard() {

@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.player1 = new Player('1', 'X', true);
-    this.player2 = new Player('2', 'O', false);
+    this.player1 = new Player('1', `<img class="token" src="assets/player1-icon.png" alt="x icon">`, true);
+    this.player2 = new Player('2', `<img class="token" src="assets/player2-icon.png" alt="o icon">`, false);
     this.currentPlayer = this.player1;
     this.counter = 0;
     this.hasWinner = false;

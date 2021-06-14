@@ -149,9 +149,15 @@ table > tbody > tr > td {
 .icon {
   height: 24vh;
   width: 16vw;
-  margin-top: 1em;
+  margin: 1em 1em 1.5em 1em;
 }
 
 p {
   color: white;
+}
+
+.num-of-wins,
+.wins-text {
+  font-size: 22px;
+  margin: .5em 0em .5em 0em;
 }

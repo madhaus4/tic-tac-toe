@@ -1,19 +1,19 @@
 class Player {
-  constructor(player, token) {
-    this.id = player
+  constructor(id, token, turn) {
+    this.id = id
     this.token = token;
     this.selections = [];
     this.wins = 0;
-    this.turn = false;
+    this.turn = turn;
   }
 
   saveWinsToStorage() {
-    localStorage.setItem();
-    JSON.stringify();
+    localStorage.setItem('winStorage', JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
     JSON.parse();
-    localStorage.getItem();
+    localStorage.getItem('winStorage');
+    currentGame = new Game();
   }
 }

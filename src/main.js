@@ -13,11 +13,9 @@ var sq8 = document.getElementById('sq8');
 var sq9 = document.getElementById('sq9');
 
 var currentGame = new Game();
-// BUTTONS
 
 // EVENTLISTENERS
 gameBoard.addEventListener('click', runGame);
-
 
 function runGame() {
   currentGame.checkforWin();
@@ -50,7 +48,6 @@ function updateBoardTitle() {
   }
 
   if (currentGame.hasWinner && !currentGame.player1.turn) {
-    console.log('SUP');
     boardTitle.innerHTML = ` ${currentGame.player1.token} WINS!!!`;
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
     boardTitle.innerHTML = ` ${currentGame.player2.token} WINS!!!`;

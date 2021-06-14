@@ -3,7 +3,7 @@ class Game {
     this.player1 = new Player('1', 'X', true);
     this.player2 = new Player('2', 'O', false);
     this.currentPlayer = this.player1;
-    this.counter = 1;
+    this.counter = 0;
     this.hasWinner = false;
     this.isDraw = false;
     this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
@@ -37,12 +37,9 @@ class Game {
       var combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
-        this.updateWins();
       }
     }
-    // if (this.hasWinner) {
-    //   this.updateWins();
-    // }
+    this.updateWins();
   }
 
   checkForDraw() {
@@ -53,10 +50,9 @@ class Game {
 
   updateWins() {
     if (this.hasWinner) {
-    this.currentPlayer.wins += 1;
-    console.log(this.currentPlayer.id, this.currentPlayer.wins);
-    this.currentPlayer.saveWinsToStorage();
-  }
+      this.currentPlayer.wins += 1;
+      this.currentPlayer.saveWinsToStorage();
+    }
   }
 
   // resetGameBoard() {

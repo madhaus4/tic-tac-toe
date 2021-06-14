@@ -25,13 +25,14 @@ gameBoard.addEventListener('click', runGame);
 function runGame() {
   console.log(currentGame);
   currentGame.collectSquares(currentGame.currentPlayer);
-  renderToken();
-  currentGame.updateGameBoard();
   currentGame.checkforWin();
   currentGame.checkForDraw();
-  updateBoardTitle();
+  renderToken();
+  currentGame.updateGameBoard();
   disableClick();
+  updateBoardTitle();
   resetGame();
+  getWinsFromStorage();
 }
 
 function renderToken() {
@@ -48,19 +49,43 @@ function renderToken() {
 }
 
 function updateBoardTitle() {
-  if (!currentGame.hasWinner && currentGame.currentPlayer.turn) {
+  if (!currentGame.hasWinner
+    // && !currentGame.currentPlayer.turn
+  ) {
     boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!`;
   }
 
+  // if (currentGame.hasWinner && !currentGame.currentPlayer.turn) {
+  //     boardTitle.innerHTML = `${currentGame.currentPlayer.token} WINS!!!`;
+  // }
+
   if (currentGame.hasWinner && !currentGame.player1.turn) {
-    boardTitle.innerHTML = ` ${currentGame.player1.token} WINS!!!`;
+    boardTitle.innerHTML = `${currentGame.player1.token} WINS!!!`;
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
-    boardTitle.innerHTML = ` ${currentGame.player2.token} WINS!!!`;
+    boardTitle.innerHTML = `${currentGame.player2.token} WINS!!!`;
   }
 
   if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
     boardTitle.innerText = 'It\'s a draw! Please play again!';
   }
+}
+
+function resetGame() {
+  if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
+    timeOut();
+  }
+}
+
+function timeOut() {
+  setTimeout(function() {
+    // getWinsFromStorage();
+    clearGameBoard();
+    currentGame = new Game();
+    // currentGame.resetGameBoard();
+    boardTitle.innerText = `It's X's turn!!!`;
+    enableClick();
+    // currentGame.updatePlayerTurn();
+  }, 2000);
 }
 
 function getWinsFromStorage() {
@@ -72,25 +97,6 @@ function getWinsFromStorage() {
 function displayWins() {
   p1Wins.innerText = `${currentGame.player1.wins}`;
   p2Wins.innerText = `${currentGame.player2.wins}`;
-}
-
-
-function resetGame() {
-  if (currentGame.hasWinner || currentGame.hasDraw || currentGame.counter === 9) {
-    timeOut();
-  }
-}
-
-function timeOut() {
-  setTimeout(function() {
-    getWinsFromStorage();
-    clearGameBoard();
-    currentGame = new Game();
-    // currentGame.resetGameBoard();
-    boardTitle.innerText = `It's X's turn!!!`;
-    enableClick();
-    // currentGame.updatePlayerTurn();
-  }, 2000);
 }
 
 function clearGameBoard() {

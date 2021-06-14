@@ -7,7 +7,8 @@
 body {
   background: rgb(207,137,38);
   background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
-  margin: 0;
+  /* width: 100%; */
+
 }
 
 
@@ -16,18 +17,23 @@ h1 {
   display: flex;
   justify-content: center;
   margin: .1em 0em .1em 0em;
+  height: 14vh;
   width: 100%;
   /* animation-name: popin; */
   /* animation-duration: 1s; */
 }
 
+img {
+  height: 20vh;
+}
+/*
 h1 > p {
   font-family: 'Rock Salt', cursive;
   font-size: 40px;
   text-align: center;
   margin: 0;
   padding: .15em;
-}
+} */
 #tic {
   animation-name: popin;
   animation-duration: 1s;
@@ -55,12 +61,9 @@ h1 > p {
 main{
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
   height: 80vh;
-  width: 100vw;
-  padding-bottom: 2em;
-  margin-bottom: 2em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 
@@ -82,7 +85,8 @@ section {
 .board-title {
   color: white;
   padding: .25em;
-  margin: 0em 0em 2em 0em
+  margin: 0em 0em 1.5em 0em;
+  font-size: 30px;
 }
 
 /* GAME BOARD */
@@ -90,7 +94,7 @@ table {
   padding: .25em;
   margin: auto;
   height: 86%;
-  width: 86%;
+  width: 78%;
   border-collapse: collapse;
 }
 
@@ -125,11 +129,12 @@ table > tbody > tr > td {
 }
 
 .left {
+  padding-right: 0;
   margin-right: 0;
 }
 
 .right {
-  /* padding-right: 1em; */
+  padding-left: 0;
   margin-left: 0;
 }
 
@@ -142,11 +147,17 @@ table > tbody > tr > td {
 } */
 
 .icon {
-  height: 30vh;
-  width: 24vw;
-  margin-top: 1em;
+  height: 24vh;
+  width: 16vw;
+  margin: 1em 1em 1.5em 1em;
 }
 
 p {
   color: white;
+}
+
+.num-of-wins,
+.wins-text {
+  font-size: 22px;
+  margin: .5em 0em .5em 0em;
 }

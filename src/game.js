@@ -16,7 +16,7 @@ class Game {
   }
 
   collectSquares(player) {
-    this.counter += 1;
+    this.counter++;
     for (var i = 0; i < this.gameBoard.length; i ++) {
       if (this.gameBoard[i] === event.target.id) {
         player.selections.push(this.gameBoard[i]);
@@ -37,14 +37,21 @@ class Game {
       var combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
-        this.currentPlayer.wins += 1;
       }
     }
+    this.updateWins();
   }
 
   checkForDraw() {
     if (!this.hasWinner && this.counter === 9) {
       this.isDraw = true;
+    }
+  }
+
+  updateWins() {
+    if (this.hasWinner) {
+      this.currentPlayer.wins += 1;
+      this.currentPlayer.saveWinsToStorage();
     }
   }
 
@@ -60,13 +67,21 @@ class Game {
 
   updatePlayerTurn() {
     if (this.player1.turn) {
+      // console.log('p1');
       this.player1.turn = false;
+      // console.log('who dis');
       this.player2.turn = true;
+      // console.log('cat');
       this.updateCurrentPlayer(this.player2);
+      // console.log('kitten');
     } else if (this.player2.turn) {
-      this.player1.turn = true;
+      // console.log('p2');
       this.player2.turn = false;
+      // console.log('why tho');
+      this.player1.turn = true;
+      // console.log('dog');
       this.updateCurrentPlayer(this.player1);
+      // console.log('puppy');
     }
   }
 

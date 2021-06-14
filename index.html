@@ -10,18 +10,20 @@
   </head>
   <body>
     <!-- <nav> -->
-      <h1 class="page-title"><p id="tic">tic</p> <p id="tac">tac</p> <p id="toe">toe</p></h1>
+      <!-- <h1 class="page-title"><p id="tic">tic</p> <p id="tac">tac</p> <p id="toe">toe</p></h1> -->
+      <h1 class="page-title"><img src="assets/tic.png" alt="tic" id="tic"><img src="assets/tac.png" alt="tac" id="tac"><img src="assets/toe.png" alt="toe" id="toe"></h1>
     <!-- </nav> -->
     <main>
       <section class="player-container left">
         <!-- <h3 class="player">✘</h3> -->
         <!-- <h3 class="player">X</h3> -->
         <img class="player icon" src="assets/player1-icon.png" alt="player1-icon">
-        <p>wins</p>
+        <p class="num-of-wins" id="numOfWinP1"></p>
+        <p class="wins-text">wins</p>
       </section>
       <section class="center-container" id="centerContainer">
         <h2 class="board-title" id="boardTitle">It's X's turn!</h2>
-        <table caption="game-board">
+        <table caption="game-board" id="gameBoard">
           <tr>
             <td class="row-1 col-1 square" id="sq1"></td>
             <td class="row-1 col-2 square" id="sq2"></td>
@@ -43,7 +45,8 @@
         <!-- <h3 class="player">❍</h3> -->
         <!-- <h3 class="player">O</h3> -->
         <img class="player icon" src="assets/player2-icon.png" alt="player2 icon">
-        <p>wins</p>
+        <p class="num-of-wins" id="numOfWinP2"></p>
+        <p class="wins-text">wins</p>
       </section>
     </main>
     <script type="text/javascript" src="src/player.js"></script>

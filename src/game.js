@@ -3,7 +3,7 @@ class Game {
     this.player1 = new Player('1', 'X', true);
     this.player2 = new Player('2', 'O', false);
     this.currentPlayer = this.player1;
-    this.counter = 0;
+    this.counter = 1;
     this.hasWinner = false;
     this.isDraw = false;
     this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
@@ -32,34 +32,17 @@ class Game {
     }
   }
 
-//   checkforWin() {
-//     var combos = this.currentPlayer.selections.sort();
-//     if (combos.length > 2) {
-//     for (var x = 0; x < combos.length; x++) {
-//         console.log('player', combos);
-//       for (var i = 0; i < this.winCombinations.length; i++) {
-//         console.log(this.winCombinations[i]);
-//       if (combos.includes(this.winCombinations[i])) {
-//         console.log('YAY');
-//         this.hasWinner = true;
-//         this.updateWins();
-//       }
-//     }
-//   }
-//   }
-// }
-
   checkforWin() {
-    var combination;
     for (var i = 0; i < this.winCombinations.length; i++) {
-      combination = this.winCombinations[i];
+      var combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
+        this.updateWins();
       }
     }
-    if (this.hasWinner) {
-      this.updateWins();
-    }
+    // if (this.hasWinner) {
+    //   this.updateWins();
+    // }
   }
 
   checkForDraw() {
@@ -69,18 +52,12 @@ class Game {
   }
 
   updateWins() {
+    if (this.hasWinner) {
     this.currentPlayer.wins += 1;
     console.log(this.currentPlayer.id, this.currentPlayer.wins);
     this.currentPlayer.saveWinsToStorage();
   }
-  //   if (this.hasWinner && !this.player1.turn) {
-  //     this.player1.wins++;
-  //     this.player1.saveWinsToStorage();
-  //   } else if (this.hasWinner && !this.player2.turn) {
-  //     this.player2.wins++;
-  //     this.player2.saveWinsToStorage();
-  //   }
-  // }
+  }
 
   // resetGameBoard() {
   //   this.player1.selections = [];
@@ -94,13 +71,21 @@ class Game {
 
   updatePlayerTurn() {
     if (this.player1.turn) {
+      // console.log('p1');
       this.player1.turn = false;
+      // console.log('who dis');
       this.player2.turn = true;
+      // console.log('cat');
       this.updateCurrentPlayer(this.player2);
+      // console.log('kitten');
     } else if (this.player2.turn) {
-      this.player1.turn = true;
+      // console.log('p2');
       this.player2.turn = false;
+      // console.log('why tho');
+      this.player1.turn = true;
+      // console.log('dog');
       this.updateCurrentPlayer(this.player1);
+      // console.log('puppy');
     }
   }
 

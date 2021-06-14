@@ -16,7 +16,7 @@ class Game {
   }
 
   collectSquares(player) {
-    this.counter += 1;
+    this.counter++;
     for (var i = 0; i < this.gameBoard.length; i ++) {
       if (this.gameBoard[i] === event.target.id) {
         player.selections.push(this.gameBoard[i]);
@@ -32,18 +32,34 @@ class Game {
     }
   }
 
+//   checkforWin() {
+//     var combos = this.currentPlayer.selections.sort();
+//     if (combos.length > 2) {
+//     for (var x = 0; x < combos.length; x++) {
+//         console.log('player', combos);
+//       for (var i = 0; i < this.winCombinations.length; i++) {
+//         console.log(this.winCombinations[i]);
+//       if (combos.includes(this.winCombinations[i])) {
+//         console.log('YAY');
+//         this.hasWinner = true;
+//         this.updateWins();
+//       }
+//     }
+//   }
+//   }
+// }
+
   checkforWin() {
     var combination;
     for (var i = 0; i < this.winCombinations.length; i++) {
       combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
-        // this.currentPlayer.wins += 1;
       }
+    }
+    if (this.hasWinner) {
       this.updateWins();
     }
-    // this.player1.saveWinsToStorage();
-    // this.player2.saveWinsToStorage();
   }
 
   checkForDraw() {
@@ -51,15 +67,20 @@ class Game {
       this.isDraw = true;
     }
   }
+
   updateWins() {
-    if (this.hasWinner && !this.player1.turn) {
-      this.player1.wins += 1;
-      this.player1.saveWinsToStorage();
-    } else if (this.hasWinner && !this.player2.turn) {
-      this.player2.wins += 1;
-      this.player2.saveWinsToStorage();
-    }
+    this.currentPlayer.wins += 1;
+    console.log(this.currentPlayer.id, this.currentPlayer.wins);
+    this.currentPlayer.saveWinsToStorage();
   }
+  //   if (this.hasWinner && !this.player1.turn) {
+  //     this.player1.wins++;
+  //     this.player1.saveWinsToStorage();
+  //   } else if (this.hasWinner && !this.player2.turn) {
+  //     this.player2.wins++;
+  //     this.player2.saveWinsToStorage();
+  //   }
+  // }
 
   // resetGameBoard() {
   //   this.player1.selections = [];

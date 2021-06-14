@@ -20,13 +20,14 @@ gameBoard.addEventListener('click', runGame);
 
 
 function runGame() {
+  currentGame.checkforWin();
   currentGame.collectSquares(currentGame.currentPlayer);
   renderToken();
   currentGame.updateGameBoard();
-  currentGame.checkforWin();
-  currentGame.checkForDraw();
+  // currentGame.checkforWin();
+  // currentGame.checkForDraw();
+  // updateBoardTitle();
   disableClick();
-  updateBoardTitle();
   resetGame();
 }
 
@@ -37,17 +38,25 @@ function renderToken() {
       eval(idTarget).innerHTML = currentGame.currentPlayer.token;
       currentGame.updatePlayerTurn();
     }
+    currentGame.checkforWin();
+    currentGame.checkForDraw();
+    updateBoardTitle();
   }
 }
 
 function updateBoardTitle() {
   if (!currentGame.hasWinner) {
-      boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!!!`;
+    boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!!!`;
   }
-  if (currentGame.hasWinner) {
-      boardTitle.innerHTML = ` ${currentGame.currentPlayer.token} WINS!!!`;
+
+  if (currentGame.hasWinner && !currentGame.player1.turn) {
+    console.log('SUP');
+    boardTitle.innerHTML = ` ${currentGame.player1.token} WINS!!!`;
+  } else if (currentGame.hasWinner && !currentGame.player2.turn) {
+    boardTitle.innerHTML = ` ${currentGame.player2.token} WINS!!!`;
   }
-  if (currentGame.isDraw && currentGame.counter <= 10) {
+
+  if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
     boardTitle.innerText = 'It\'s a draw! Please play again!';
   }
 }

@@ -33,18 +33,31 @@ class Game {
   }
 
   checkforWin() {
+    var combination;
     for (var i = 0; i < this.winCombinations.length; i++) {
-      var combination = this.winCombinations[i];
+      combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
-        this.currentPlayer.wins += 1;
+        // this.currentPlayer.wins += 1;
       }
+      this.updateWins();
     }
+    // this.player1.saveWinsToStorage();
+    // this.player2.saveWinsToStorage();
   }
 
   checkForDraw() {
     if (!this.hasWinner && this.counter === 9) {
       this.isDraw = true;
+    }
+  }
+  updateWins() {
+    if (this.hasWinner && !this.player1.turn) {
+      this.player1.wins += 1;
+      this.player1.saveWinsToStorage();
+    } else if (this.hasWinner && !this.player2.turn) {
+      this.player2.wins += 1;
+      this.player2.saveWinsToStorage();
     }
   }
 

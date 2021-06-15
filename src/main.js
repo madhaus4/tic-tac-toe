@@ -78,20 +78,12 @@ function resetGame() {
 
 function timeOut() {
   setTimeout(function() {
-    // boardTitleIcon.innerHTML = '';
-    // boardTitle.innerHTML = '';
-    // getWinsFromStorage();
     clearGameBoard();
     currentGame = new Game();
-    // currentGame.resetGameBoard();
     boardTitle.innerHTML = `<p id="itText">It's</p>
     <p class="player board-title-player" id="boardTitlePlayer">C</p>
     <p id="turnText">'s turn!</p>`;
-
-
-    // `It's ${currentGame.currentPlayer.token}'s turn!`;
     enableClick();
-    // currentGame.updatePlayerTurn();
   }, 2000);
 }
 

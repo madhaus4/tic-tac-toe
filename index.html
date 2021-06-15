@@ -10,24 +10,34 @@
   </head>
   <body>
     <!-- <nav> -->
-      <!-- <h1 class="page-title"><p id="tic">tic</p> <p id="tac">tac</p> <p id="toe">toe</p></h1> -->
-      <h1 class="page-title"><img src="assets/tic.png" alt="tic" id="tic"><img src="assets/tac.png" alt="tac" id="tac"><img src="assets/toe.png" alt="toe" id="toe"></h1>
+      <h1 class="page-title"><p id="tic">tic</p> <p id="tac">tac</p> <p id="toe">toe</p></h1>
+      <!-- <h1 class="page-title"><img src="assets/tic.png" alt="tic" id="tic"><img src="assets/tac.png" alt="tac" id="tac"><img src="assets/toe.png" alt="toe" id="toe"></h1> -->
     <!-- </nav> -->
     <main>
       <section class="player-container left">
         <!-- <h3 class="player">✘</h3> -->
         <!-- <h3 class="player">X</h3> -->
-        <img class="player icon" src="assets/player1-icon.png" alt="player1 X icon">
+        <h3 class="player">C</h3>
+        <!-- <img class="player icon" src="assets/player1-icon.png" alt="player1 X icon"> -->
         <p class="num-of-wins" id="numOfWinP1"></p>
         <p class="wins-text">wins</p>
       </section>
+
+
+
       <section class="center-container" id="centerContainer">
 
         <h2 class="board-title" id="boardTitle">
-          <p>It's</p>
-          <img class="board-title-icon" id="boardTitleIcon" src="assets/player1-icon.png" alt="player1 X icon">
-          <p>'s turn!</p>
+          <p id="itText">It's</p>
+          <p class="player board-title-player">C</p>
+          <!-- <img class="board-title-icon" id="boardTitleIcon" src="assets/player1-icon.png" alt="player icon"> -->
+          <p id="turnText">'s turn!</p>
+          <p class="hidden" id="winText">WINS!!!</p>
         </h2>
+
+
+
+
 
         <table caption="game-board" id="gameBoard">
           <tr>
@@ -47,10 +57,13 @@
           </tr>
         </table>
       </section>
+
+
       <section class="player-container right">
         <!-- <h3 class="player">❍</h3> -->
         <!-- <h3 class="player">O</h3> -->
-        <img class="player icon" src="assets/player2-icon.png" alt="player2 O icon">
+        <h3 class="player">Y</h3>
+        <!-- <img class="player icon" src="assets/player2-icon.png" alt="player2 O icon"> -->
         <p class="num-of-wins" id="numOfWinP2"></p>
         <p class="wins-text">wins</p>
       </section>

@@ -52,7 +52,7 @@ function updateBoardTitle() {
   }
 
   if (currentGame.hasWinner && !currentGame.player1.turn) {
-    boardTitle.innerHTML = `<p class="board-title-player">C</p><p> WINS!!!</p>`
+    boardTitle.innerHTML = `<p class="board-title-player">C</p><p> WINS!!!</p>`;
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
     boardTitle.innerHTML = `<p class="board-title-player">Y</p><p> WINS!!!</p>`;
   }

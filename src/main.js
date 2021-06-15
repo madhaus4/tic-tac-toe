@@ -1,11 +1,8 @@
-// QUERYSELECTORS
 var gameBoard = document.getElementById('gameBoard');
 var boardTitle = document.getElementById('boardTitle');
-var boardTitleIcon = document.getElementById('boardTitleIcon');
 var boardTitlePlayer = document.getElementById('boardTitlePlayer');
-var boardTitleText1 = document.getElementById('itText');
-var boardTitleText2 = document.getElementById('turnText');
-var boardTitleText3 = document.getElementById('winText');
+var p1Wins = document.getElementById('numOfWinP1');
+var p2Wins = document.getElementById('numOfWinP2');
 var gameSpaces = document.querySelectorAll('.square');
 var sq1 = document.getElementById('sq1');
 var sq2 = document.getElementById('sq2');
@@ -17,13 +14,8 @@ var sq7 = document.getElementById('sq7');
 var sq8 = document.getElementById('sq8');
 var sq9 = document.getElementById('sq9');
 
-var p1Wins = document.getElementById('numOfWinP1');
-var p2Wins = document.getElementById('numOfWinP2');
-
-
 var currentGame = new Game();
 
-// EVENTLISTENERS
 window.addEventListener('load', getWinsFromStorage);
 gameBoard.addEventListener('click', runGame);
 

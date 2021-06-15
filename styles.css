@@ -16,6 +16,7 @@
 body {
   background: rgb(207,137,38);
   background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
+  margin: .5em 3.5em 2em 3em;
 }
 
 
@@ -95,7 +96,7 @@ section {
 .board-title-player {
   font-family: Graffiti tags;
   font-size: 65px;
-  padding: 0em 0em 0em.15em;
+  padding: 0em 0em 0em .15em;
   margin: 0;
 }
 
@@ -118,11 +119,15 @@ table {
 }
 
 table > tbody > tr > td {
-  height: 30%;
-  width: 30%;
+  height: 33%;
+  width: 33%;
   text-align: center;
 }
 
+.board-token {
+  font-size: 90px;
+  padding: 0;
+}
 
 /* LEFT & RIGHT SIDEBAR  */
 .player-container {
@@ -139,7 +144,7 @@ table > tbody > tr > td {
 
 .num-of-wins,
 .wins-text {
-  font-size: 60px;
+  font-size: 65px;
   font-family: Graffiti City;
-  margin: .15em 0em 0em 0em;
+  margin: 0;
 }

@@ -59,33 +59,15 @@ class Game {
     }
   }
 
-  // resetGameBoard() {
-  //   this.player1.selections = [];
-  //   this.player2.selections = [];
-  //   this.currentPlayer = this.player1;
-  //   this.gameBoard = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
-  //   this.hasWinner = false;
-  //   this.isDraw = false;
-  //   this.counter = 0;
-  // }
-
   updatePlayerTurn() {
     if (this.player1.turn) {
-      // console.log('p1');
       this.player1.turn = false;
-      // console.log('who dis');
       this.player2.turn = true;
-      // console.log('cat');
       this.updateCurrentPlayer(this.player2);
-      // console.log('kitten');
     } else if (this.player2.turn) {
-      // console.log('p2');
       this.player2.turn = false;
-      // console.log('why tho');
       this.player1.turn = true;
-      // console.log('dog');
       this.updateCurrentPlayer(this.player1);
-      // console.log('puppy');
     }
   }
 

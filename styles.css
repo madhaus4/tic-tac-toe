@@ -17,14 +17,14 @@ h1 {
   display: flex;
   justify-content: center;
   margin: .1em 0em .1em 0em;
-  height: 14vh;
+  height: 10vh;
   width: 100%;
   /* animation-name: popin; */
   /* animation-duration: 1s; */
 }
 
 img {
-  height: 20vh;
+  height: 18vh;
 }
 /*
 h1 > p {
@@ -36,15 +36,15 @@ h1 > p {
 } */
 #tic {
   animation-name: popin;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
 }
 #tac {
   animation-name: popin;
-  animation-duration: 1.5s;
+  animation-duration: 2.5s;
 }
 #toe {
   animation-name: popin;
-  animation-duration: 2s;
+  animation-duration: 3.5s;
 }
 @keyframes popin {
   from {
@@ -78,16 +78,33 @@ section {
 }
 
 .center-container {
-  margin: 1em 0em 1em 0em;
+  margin: 0;
   width: 50%;
 }
 
+
+
+
+
 .board-title {
+  display: flex;
+  flex-direction: row;
   color: white;
-  padding: .25em;
   margin: 0em 0em 1.5em 0em;
   font-size: 30px;
 }
+
+.board-title-icon,
+.token {
+  align-self: center;
+  margin: 0;
+  height: 10vh;
+  width: 7vw;
+}
+
+
+
+
 
 /* GAME BOARD */
 table {
@@ -110,7 +127,6 @@ table {
   /* padding: .5em; */
 }
 
-
 table > tbody > tr > td {
   height: 30%;
   width: 30%;
@@ -119,6 +135,12 @@ table > tbody > tr > td {
   padding: 1em;
   margin: 1em;
 }
+
+/* .token {
+  height: 12vh;
+  width: 8vw;
+  margin: auto;
+} */
 
 /* LEFT & RIGHT SIDEBAR  */
 .player-container {
@@ -158,6 +180,7 @@ p {
 
 .num-of-wins,
 .wins-text {
-  font-size: 22px;
-  margin: .5em 0em .5em 0em;
+  color: navy;
+  font-size: 40px;
+  margin: .25em 0em 0em 0em;
 }

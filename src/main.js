@@ -46,19 +46,19 @@ function renderToken() {
 
 function updateBoardTitle() {
   if (!currentGame.hasWinner && currentGame.player1.turn) {
-    boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p>`;
+    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player">C</p><p>'s turn!</p>`;
   } else if (!currentGame.hasWinner && currentGame.player2.turn) {
-      boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p>`;
+    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player">Y</p><p>'s turn!</p>`;
   }
 
   if (currentGame.hasWinner && !currentGame.player1.turn) {
-    boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p><p id="winText">WINS!!!</p>`
+    boardTitle.innerHTML = `<p class="board-title-player">C</p><p> WINS!!!</p>`
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
-    boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p><p id="winText">WINS!!!</p>`;
+    boardTitle.innerHTML = `<p class="board-title-player">Y</p><p> WINS!!!</p>`;
   }
 
   if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
-    boardTitle.innerHTML = `<p>It\'s a draw! Please play again!</p>`;
+    boardTitle.innerHTML = `<p>It\'s a draw! Play again!</p>`;
   }
 }
 
@@ -72,9 +72,9 @@ function timeOut() {
   setTimeout(function() {
     clearGameBoard();
     currentGame = new Game();
-    boardTitle.innerHTML = `<p id="itText">It's</p>
-    <p class="player board-title-player" id="boardTitlePlayer">C</p>
-    <p id="turnText">'s turn!</p>`;
+    boardTitle.innerHTML = `
+      <p class="board-title-player">C</p>
+      <p>, kick the game off!</p>`;
     enableClick();
   }, 2000);
 }

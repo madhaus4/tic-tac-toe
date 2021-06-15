@@ -53,47 +53,17 @@ function renderToken() {
 }
 
 function updateBoardTitle() {
-
-  // if (!currentGame.hasWinner) {
-  //   // && !currentGame.currentPlayer.turn
-  //   boardTitleIcon.innerHTML = `${currentGame.currentPlayer.token}`;
-  // }
   if (!currentGame.hasWinner && currentGame.player1.turn) {
     boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p>`;
-    // `<h4 class="font">${currentGame.player1.token}</h4>`;
-    // boardTitleIcon.src = `assets/player1-icon.png`;
   } else if (!currentGame.hasWinner && currentGame.player2.turn) {
       boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p>`;
-    // boardTitleIcon.src = `assets/player2-icon.png`;
   }
+
   if (currentGame.hasWinner && !currentGame.player1.turn) {
     boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p><p id="winText">WINS!!!</p>`
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
     boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p><p id="winText">WINS!!!</p>`;
-  ;
   }
-
-
-
-  // if (currentGame.hasWinner && currentGame.currentPlayer.turn) {
-  //   boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">${currentGame.currentPlayer.token}</p>`;
-  //     // boardTitleIcon.innerHTML =
-  //     // `${currentGame.currentPlayer.token} WINS!!!`;
-  // }
-
-  // if (currentGame.hasWinner && !currentGame.player1.turn) {
-  //   console.log('sup');
-  //   boardTitleIcon.src = `assets/player1-icon.png`;
-  //   // boardTitleText1.classList.add('hidden');
-  //   // boardTitleText2.classList.add('hidden');
-  //   // boardTitleText3.classList.remove('hidden');
-  // } else if (currentGame.hasWinner && !currentGame.player2.turn) {
-  //   console.log('hey');
-  //   boardTitleIcon.src = `assets/player2-icon.png`;
-  //   // boardTitleText1.classList.add('hidden');
-  //   // boardTitleText2.classList.add('hidden');
-  //   // boardTitleText3.classList.remove('hidden');
-  // }
 
   if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
     boardTitle.innerHTML = `<p>It\'s a draw! Please play again!</p>`;

@@ -37,17 +37,18 @@ h1 > p {
 
 #tic {
   animation-name: popin;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
+
 }
 
 #tac {
   animation-name: popin;
-  animation-duration: 2.5s;
+  animation-duration: 4s;
 }
 
 #toe {
   animation-name: popin;
-  animation-duration: 3.5s;
+  animation-duration: 6s;
 }
 
 @keyframes popin {
@@ -109,6 +110,9 @@ table {
   border-collapse: collapse;
 }
 
+table:hover {
+  cursor: url('assets/paint.png'), auto;
+}
 .col-2 {
   border-left: .5em solid black;
   border-right: .5em solid black;

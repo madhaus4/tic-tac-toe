@@ -7,17 +7,10 @@
   src: url('assets/graffiti-tags.ttf');
 }
 
-.font {
-  font-family: Graffiti tags;
-  color: navy;
-}
-
 /* ENTIRE PAGE */
 * {
   font-family: Graffiti city;
   color: navy;
-  /* font-family: 'Work Sans', sans-serif; */
-  /* border: .15em solid white; */
 }
 
 body {
@@ -33,36 +26,40 @@ h1 {
   justify-content: center;
   margin: .1em 0em .1em 0em;
   height: 10vh;
-  width: 100%;
+  /* width: 100%; */
   /* animation-name: popin; */
   /* animation-duration: 1s; */
 }
 
-img {
+/* img {
   height: 18vh;
-}
+} */
 
 h1 > p {
   /* font-family: 'Rock Salt', cursive; */
   /* font-family" Graffiti city; */
   font-size: 60px;
   text-align: center;
-  color: navy;
+  /* color: navy; */
   margin: .25em 0em 0em 0em;
   padding: .15em;
 }
+
 #tic {
   animation-name: popin;
   animation-duration: 1.5s;
 }
+
 #tac {
   animation-name: popin;
   animation-duration: 2.5s;
 }
+
 #toe {
   animation-name: popin;
   animation-duration: 3.5s;
 }
+
 @keyframes popin {
   from {
     z-index: 0;
@@ -79,8 +76,8 @@ main{
   display: flex;
   justify-content: center;
   height: 80vh;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
+  /* padding-bottom: 1em; */
+  /* margin-bottom: 1em; */
 }
 
 
@@ -90,50 +87,52 @@ section {
   flex-direction: column;
   align-items: center;
   padding: 1em 1em 3em 1em;
-  margin: 1em;
-  height: 80%;
+  /* margin: 1em; */
+  height: 75%;
 }
 
 .center-container {
-  margin: 0;
+  /* margin: 0; */
   width: 50%;
 }
-
-
-
-
 
 .board-title {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: white;
-  margin: .5em 0em 1.5em 0em;
+  /* color: white; */
+  margin: .5em 0em .5em 0em;
   font-size: 30px;
   font-family: Graffiti City;
 }
-
+/*
 .board-title-icon,
 .token {
   align-self: center;
   margin: 0;
   height: 10vh;
   width: 7vw;
-}
-
+} */
+/*
 .board-title-icon2.0 {
   font-size: 30px;
-}
+} */
 
+.board-title-player {
+  font-family: Graffiti tags;
+  font-size: 65px;
+  padding: 0em 0em 0em.15em;
+  margin: 0;
+}
 
 
 /* GAME BOARD */
 table {
-  padding: .25em;
-  margin: auto;
-  height: 86%;
-  width: 78%;
+  /* padding: .25em; */
+  /* margin: auto; */
+  height: 95%;
+  width: 90%;
   border-collapse: collapse;
 }
 
@@ -153,9 +152,9 @@ table > tbody > tr > td {
   height: 30%;
   width: 30%;
   text-align: center;
-  color: navy;
-  padding: 1em;
-  margin: 1em;
+  /* color: navy; */
+  /* padding: 1em; */
+  /* margin: 1em; */
 }
 
 /* .token {
@@ -172,7 +171,7 @@ table > tbody > tr > td {
   width: 15%;
 }
 
-.left {
+/* .left {
   padding-right: 0;
   margin-right: 0;
 }
@@ -180,27 +179,23 @@ table > tbody > tr > td {
 .right {
   padding-left: 0;
   margin-left: 0;
-}
+} */
 
 .player {
-  font-size: 225px;
+  font-size: 220px;
   /* font-family: 'Ruslan Display', cursive; */
   font-family: Graffiti tags;
-  color: navy;
+  /* color: navy; */
   /* padding: .1em; */
   margin: .5em 0em 0em 0em;
 }
 
-.board-title-player {
-  font-size: 60px;
-  margin: 0;
-}
 
-.icon {
+/* .icon {
   height: 24vh;
   width: 16vw;
   margin: 1em 1em 1.5em 1em;
-}
+} */
 
 /* p {
   color: white;
@@ -208,13 +203,9 @@ table > tbody > tr > td {
 
 .num-of-wins,
 .wins-text {
-  color: navy;
+  /* color: navy; */
   /* font-size: 40px; */
   font-size: 60px;
   font-family: Graffiti City;
-  margin: .25em 0em 0em 0em;
-}
-
-.hidden {
-  display: none;
+  margin: .15em 0em 0em 0em;
 }

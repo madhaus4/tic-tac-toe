@@ -1,6 +1,22 @@
+@font-face {
+  font-family: Graffiti city;
+  src: url('assets/graffiti-city.otf');
+}
+@font-face {
+  font-family: Graffiti tags;
+  src: url('assets/graffiti-tags.ttf');
+}
+
+.font {
+  font-family: Graffiti tags;
+  color: navy;
+}
+
 /* ENTIRE PAGE */
 * {
-  font-family: 'Work Sans', sans-serif;
+  font-family: Graffiti city;
+  color: navy;
+  /* font-family: 'Work Sans', sans-serif; */
   /* border: .15em solid white; */
 }
 
@@ -8,7 +24,6 @@ body {
   background: rgb(207,137,38);
   background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
   /* width: 100%; */
-
 }
 
 
@@ -26,14 +41,16 @@ h1 {
 img {
   height: 18vh;
 }
-/*
+
 h1 > p {
-  font-family: 'Rock Salt', cursive;
-  font-size: 40px;
+  /* font-family: 'Rock Salt', cursive; */
+  /* font-family" Graffiti city; */
+  font-size: 60px;
   text-align: center;
-  margin: 0;
+  color: navy;
+  margin: .25em 0em 0em 0em;
   padding: .15em;
-} */
+}
 #tic {
   animation-name: popin;
   animation-duration: 1.5s;
@@ -89,9 +106,12 @@ section {
 .board-title {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: white;
-  margin: 0em 0em 1.5em 0em;
+  margin: .5em 0em 1.5em 0em;
   font-size: 30px;
+  font-family: Graffiti City;
 }
 
 .board-title-icon,
@@ -102,7 +122,9 @@ section {
   width: 7vw;
 }
 
-
+.board-title-icon2.0 {
+  font-size: 30px;
+}
 
 
 
@@ -160,13 +182,19 @@ table > tbody > tr > td {
   margin-left: 0;
 }
 
-/* .player {
-  font-size: 60px;
-  font-family: 'Ruslan Display', cursive;
+.player {
+  font-size: 225px;
+  /* font-family: 'Ruslan Display', cursive; */
+  font-family: Graffiti tags;
   color: navy;
-  padding: .1em;
+  /* padding: .1em; */
   margin: .5em 0em 0em 0em;
-} */
+}
+
+.board-title-player {
+  font-size: 60px;
+  margin: 0;
+}
 
 .icon {
   height: 24vh;
@@ -174,13 +202,19 @@ table > tbody > tr > td {
   margin: 1em 1em 1.5em 1em;
 }
 
-p {
+/* p {
   color: white;
-}
+} */
 
 .num-of-wins,
 .wins-text {
   color: navy;
-  font-size: 40px;
+  /* font-size: 40px; */
+  font-size: 60px;
+  font-family: Graffiti City;
   margin: .25em 0em 0em 0em;
+}
+
+.hidden {
+  display: none;
 }

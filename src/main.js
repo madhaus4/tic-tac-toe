@@ -1,6 +1,11 @@
 // QUERYSELECTORS
 var gameBoard = document.getElementById('gameBoard');
 var boardTitle = document.getElementById('boardTitle');
+var boardTitleIcon = document.getElementById('boardTitleIcon');
+var boardTitlePlayer = document.getElementById('boardTitlePlayer');
+var boardTitleText1 = document.getElementById('itText');
+var boardTitleText2 = document.getElementById('turnText');
+var boardTitleText3 = document.getElementById('winText');
 var gameSpaces = document.querySelectorAll('.square');
 var sq1 = document.getElementById('sq1');
 var sq2 = document.getElementById('sq2');
@@ -23,7 +28,6 @@ window.addEventListener('load', getWinsFromStorage);
 gameBoard.addEventListener('click', runGame);
 
 function runGame() {
-  console.log(currentGame);
   currentGame.collectSquares(currentGame.currentPlayer);
   currentGame.checkforWin();
   currentGame.checkForDraw();
@@ -43,30 +47,56 @@ function renderToken() {
       currentGame.updatePlayerTurn();
     }
   }
-  // currentGame.checkforWin();
-  // currentGame.checkForDraw();
-  // updateBoardTitle();
+  currentGame.checkforWin();
+  currentGame.checkForDraw();
+  updateBoardTitle();
 }
 
 function updateBoardTitle() {
-  if (!currentGame.hasWinner
-    // && !currentGame.currentPlayer.turn
-  ) {
-    boardTitle.innerHTML = `It's ${currentGame.currentPlayer.token}'s turn!`;
+
+  // if (!currentGame.hasWinner) {
+  //   // && !currentGame.currentPlayer.turn
+  //   boardTitleIcon.innerHTML = `${currentGame.currentPlayer.token}`;
+  // }
+  if (!currentGame.hasWinner && currentGame.player1.turn) {
+    boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p>`;
+    // `<h4 class="font">${currentGame.player1.token}</h4>`;
+    // boardTitleIcon.src = `assets/player1-icon.png`;
+  } else if (!currentGame.hasWinner && currentGame.player2.turn) {
+      boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p>`;
+    // boardTitleIcon.src = `assets/player2-icon.png`;
+  }
+  if (currentGame.hasWinner && !currentGame.player1.turn) {
+    boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">C</p><p id="winText">WINS!!!</p>`
+  } else if (currentGame.hasWinner && !currentGame.player2.turn) {
+    boardTitle.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">Y</p><p id="winText">WINS!!!</p>`;
+  ;
   }
 
-  // if (currentGame.hasWinner && !currentGame.currentPlayer.turn) {
-  //     boardTitle.innerHTML = `${currentGame.currentPlayer.token} WINS!!!`;
+
+
+  // if (currentGame.hasWinner && currentGame.currentPlayer.turn) {
+  //   boardTitlePlayer.innerHTML = `<p class="player board-title-player" id="boardTitlePlayer">${currentGame.currentPlayer.token}</p>`;
+  //     // boardTitleIcon.innerHTML =
+  //     // `${currentGame.currentPlayer.token} WINS!!!`;
   // }
 
-  if (currentGame.hasWinner && !currentGame.player1.turn) {
-    boardTitle.innerHTML = `${currentGame.player1.token} WINS!!!`;
-  } else if (currentGame.hasWinner && !currentGame.player2.turn) {
-    boardTitle.innerHTML = `${currentGame.player2.token} WINS!!!`;
-  }
+  // if (currentGame.hasWinner && !currentGame.player1.turn) {
+  //   console.log('sup');
+  //   boardTitleIcon.src = `assets/player1-icon.png`;
+  //   // boardTitleText1.classList.add('hidden');
+  //   // boardTitleText2.classList.add('hidden');
+  //   // boardTitleText3.classList.remove('hidden');
+  // } else if (currentGame.hasWinner && !currentGame.player2.turn) {
+  //   console.log('hey');
+  //   boardTitleIcon.src = `assets/player2-icon.png`;
+  //   // boardTitleText1.classList.add('hidden');
+  //   // boardTitleText2.classList.add('hidden');
+  //   // boardTitleText3.classList.remove('hidden');
+  // }
 
   if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
-    boardTitle.innerText = 'It\'s a draw! Please play again!';
+    boardTitle.innerHTML = `<p>It\'s a draw! Please play again!</p>`;
   }
 }
 
@@ -78,11 +108,18 @@ function resetGame() {
 
 function timeOut() {
   setTimeout(function() {
+    // boardTitleIcon.innerHTML = '';
+    // boardTitle.innerHTML = '';
     // getWinsFromStorage();
     clearGameBoard();
     currentGame = new Game();
     // currentGame.resetGameBoard();
-    boardTitle.innerText = `It's X's turn!!!`;
+    boardTitle.innerHTML = `<p id="itText">It's</p>
+    <p class="player board-title-player" id="boardTitlePlayer">C</p>
+    <p id="turnText">'s turn!</p>`;
+
+
+    // `It's ${currentGame.currentPlayer.token}'s turn!`;
     enableClick();
     // currentGame.updatePlayerTurn();
   }, 2000);

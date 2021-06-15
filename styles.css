@@ -1,6 +1,22 @@
+@font-face {
+  font-family: Graffiti city;
+  src: url('assets/graffiti-city.otf');
+}
+@font-face {
+  font-family: Graffiti tags;
+  src: url('assets/graffiti-tags.ttf');
+}
+
+.font {
+  font-family: Graffiti tags;
+  color: navy;
+}
+
 /* ENTIRE PAGE */
 * {
-  font-family: 'Work Sans', sans-serif;
+  font-family: Graffiti city;
+  color: navy;
+  /* font-family: 'Work Sans', sans-serif; */
   /* border: .15em solid white; */
 }
 
@@ -8,7 +24,6 @@ body {
   background: rgb(207,137,38);
   background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
   /* width: 100%; */
-
 }
 
 
@@ -17,34 +32,36 @@ h1 {
   display: flex;
   justify-content: center;
   margin: .1em 0em .1em 0em;
-  height: 14vh;
+  height: 10vh;
   width: 100%;
   /* animation-name: popin; */
   /* animation-duration: 1s; */
 }
 
 img {
-  height: 20vh;
+  height: 18vh;
 }
-/*
+
 h1 > p {
-  font-family: 'Rock Salt', cursive;
-  font-size: 40px;
+  /* font-family: 'Rock Salt', cursive; */
+  /* font-family" Graffiti city; */
+  font-size: 60px;
   text-align: center;
-  margin: 0;
+  color: navy;
+  margin: .25em 0em 0em 0em;
   padding: .15em;
-} */
-#tic {
-  animation-name: popin;
-  animation-duration: 1s;
 }
-#tac {
+#tic {
   animation-name: popin;
   animation-duration: 1.5s;
 }
+#tac {
+  animation-name: popin;
+  animation-duration: 2.5s;
+}
 #toe {
   animation-name: popin;
-  animation-duration: 2s;
+  animation-duration: 3.5s;
 }
 @keyframes popin {
   from {
@@ -78,16 +95,38 @@ section {
 }
 
 .center-container {
-  margin: 1em 0em 1em 0em;
+  margin: 0;
   width: 50%;
 }
 
+
+
+
+
 .board-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: white;
-  padding: .25em;
-  margin: 0em 0em 1.5em 0em;
+  margin: .5em 0em 1.5em 0em;
+  font-size: 30px;
+  font-family: Graffiti City;
+}
+
+.board-title-icon,
+.token {
+  align-self: center;
+  margin: 0;
+  height: 10vh;
+  width: 7vw;
+}
+
+.board-title-icon2.0 {
   font-size: 30px;
 }
+
+
 
 /* GAME BOARD */
 table {
@@ -110,7 +149,6 @@ table {
   /* padding: .5em; */
 }
 
-
 table > tbody > tr > td {
   height: 30%;
   width: 30%;
@@ -119,6 +157,12 @@ table > tbody > tr > td {
   padding: 1em;
   margin: 1em;
 }
+
+/* .token {
+  height: 12vh;
+  width: 8vw;
+  margin: auto;
+} */
 
 /* LEFT & RIGHT SIDEBAR  */
 .player-container {
@@ -138,13 +182,19 @@ table > tbody > tr > td {
   margin-left: 0;
 }
 
-/* .player {
-  font-size: 60px;
-  font-family: 'Ruslan Display', cursive;
+.player {
+  font-size: 225px;
+  /* font-family: 'Ruslan Display', cursive; */
+  font-family: Graffiti tags;
   color: navy;
-  padding: .1em;
+  /* padding: .1em; */
   margin: .5em 0em 0em 0em;
-} */
+}
+
+.board-title-player {
+  font-size: 60px;
+  margin: 0;
+}
 
 .icon {
   height: 24vh;
@@ -152,12 +202,19 @@ table > tbody > tr > td {
   margin: 1em 1em 1.5em 1em;
 }
 
-p {
+/* p {
   color: white;
-}
+} */
 
 .num-of-wins,
 .wins-text {
-  font-size: 22px;
-  margin: .5em 0em .5em 0em;
+  color: navy;
+  /* font-size: 40px; */
+  font-size: 60px;
+  font-family: Graffiti City;
+  margin: .25em 0em 0em 0em;
+}
+
+.hidden {
+  display: none;
 }

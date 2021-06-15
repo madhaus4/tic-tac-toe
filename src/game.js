@@ -1,7 +1,11 @@
 class Game {
   constructor() {
-    this.player1 = new Player('1', `<img class="token" src="assets/player1-icon.png" alt="x icon">`, true);
-    this.player2 = new Player('2', `<img class="token" src="assets/player2-icon.png" alt="o icon">`, false);
+    this.player1 = new Player('1', `C`,
+    // `<img class="token" src="assets/player1-icon.png" alt="x icon">`,
+    true);
+    this.player2 = new Player('2', `S`,
+    // `<img class="token" src="assets/player2-icon.png" alt="o icon">`,
+    false);
     this.currentPlayer = this.player1;
     this.counter = 0;
     this.hasWinner = false;
@@ -37,9 +41,9 @@ class Game {
       var combination = this.winCombinations[i];
       if (combination.every(elem => this.currentPlayer.selections.includes(elem))) {
         this.hasWinner = true;
+        this.updateWins();
       }
     }
-    this.updateWins();
   }
 
   checkForDraw() {

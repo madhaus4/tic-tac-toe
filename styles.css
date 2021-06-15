@@ -10,7 +10,7 @@
 /* ENTIRE PAGE */
 * {
   font-family: Graffiti city;
-  color: navy;
+  color: black;
 }
 
 body {
@@ -81,6 +81,7 @@ section {
 
 .center-container {
   width: 50%;
+
 }
 
 .board-title {
@@ -109,13 +110,13 @@ table {
 }
 
 .col-2 {
-  border-left: .5em solid navy;
-  border-right: .5em solid navy;
+  border-left: .5em solid black;
+  border-right: .5em solid black;
 }
 
 .row-2 {
-  border-top: .5em solid navy;
-  border-bottom: .5em solid navy;
+  border-top: .5em solid black;
+  border-bottom: .5em solid black;
 }
 
 table > tbody > tr > td {
@@ -147,4 +148,12 @@ table > tbody > tr > td {
   font-size: 65px;
   font-family: Graffiti City;
   margin: 0;
+}
+
+.token1 {
+  color: #741297;
+}
+
+.token2 {
+  color: #55A42A;
 }

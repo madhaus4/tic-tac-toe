@@ -15,11 +15,11 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background: rgb(207,137,38);
   background: linear-gradient(90deg, rgba(207,137,38,1) 18%, rgba(190,43,110,1) 82%);
   margin: .5em 3.5em 2em 3em;
-  display: flex;
-  flex-direction: column;
 }
 
 
@@ -27,15 +27,15 @@ body {
 h1 {
   display: flex;
   justify-content: center;
-  margin: .1em 0em .1em 0em;
   height: 10vh;
+  margin: .1em 0em .1em 0em;
 }
 
 h1 > p {
-  font-size: 60px;
   text-align: center;
-  margin: .25em 0em 0em 0em;
+  font-size: 60px;
   padding: .15em;
+  margin: .25em 0em 0em 0em;
 }
 
 #tic {
@@ -65,10 +65,25 @@ h1 > p {
 }
 
 button {
-  display: flex;
   align-self: flex-end;
+  position: absolute;
+  font-size: 15px;
+  color: white;
+  background: black;
+  border: 5px solid black;
+  border-radius: 50px;
   padding: .25em .75em .25em .75em;
+  margin: 1em;
+  height: 6em;
+  width: 6em;
 }
+
+button:hover {
+  color: black;
+  background: white;
+  border: 5px solid white;
+}
+
 
 /* MAIN PAGE */
 main{
@@ -96,9 +111,9 @@ section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: .5em 0em .5em 0em;
-  font-size: 30px;
   font-family: Graffiti City;
+  font-size: 30px;
+  margin: .5em 0em .5em 0em;
 }
 
 .board-title-player {
@@ -111,9 +126,9 @@ section {
 
 /* GAME BOARD */
 table {
+  border-collapse: collapse;
   height: 95%;
   width: 90%;
-  border-collapse: collapse;
 }
 
 table:hover {
@@ -131,15 +146,16 @@ table:hover {
 }
 
 table > tbody > tr > td {
+  text-align: center;
   height: 33%;
   width: 33%;
-  text-align: center;
 }
 
 .board-token {
   font-size: 90px;
   padding: 0;
 }
+
 
 /* LEFT & RIGHT SIDEBAR  */
 .player-container {
@@ -149,15 +165,15 @@ table > tbody > tr > td {
 }
 
 .player {
-  font-size: 220px;
   font-family: Graffiti tags;
+  font-size: 220px;
   margin: .5em 0em 0em 0em;
 }
 
 .num-of-wins,
 .wins-text {
-  font-size: 65px;
   font-family: Graffiti City;
+  font-size: 65px;
   margin: 0;
 }
 

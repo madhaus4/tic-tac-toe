@@ -12,11 +12,13 @@ var sq6 = document.getElementById('sq6');
 var sq7 = document.getElementById('sq7');
 var sq8 = document.getElementById('sq8');
 var sq9 = document.getElementById('sq9');
+var newPlayBtn = document.getElementById('newPlay')
 
 var currentGame = new Game();
 
 window.addEventListener('load', getWinsFromStorage);
 gameBoard.addEventListener('click', runGame);
+newPlayBtn.addEventListener('click', newGame);
 
 function runGame() {
   currentGame.collectSquares(currentGame.currentPlayer);
@@ -105,4 +107,9 @@ function enableClick() {
   if (!currentGame.hasWinner) {
     gameBoard.addEventListener('click', runGame);
   }
+}
+
+function newGame() {
+  localStorage.clear();
+  displayWins();
 }

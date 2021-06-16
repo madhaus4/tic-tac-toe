@@ -38,7 +38,6 @@ h1 > p {
 #tic {
   animation-name: popin;
   animation-duration: 2s;
-
 }
 
 #tac {
@@ -113,6 +112,7 @@ table {
 table:hover {
   cursor: url('assets/paint.png'), auto;
 }
+
 .col-2 {
   border-left: .5em solid black;
   border-right: .5em solid black;

@@ -7,6 +7,7 @@
   src: url('assets/graffiti-tags.ttf');
 }
 
+
 /* ENTIRE PAGE */
 * {
   font-family: Graffiti city;
@@ -81,7 +82,6 @@ section {
 
 .center-container {
   width: 50%;
-
 }
 
 .board-title {

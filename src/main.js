@@ -12,13 +12,19 @@ var sq6 = document.getElementById('sq6');
 var sq7 = document.getElementById('sq7');
 var sq8 = document.getElementById('sq8');
 var sq9 = document.getElementById('sq9');
-var newPlayBtn = document.getElementById('newPlay')
+var newPlayBtn = document.getElementById('newPlay');
+var soundEffect = document.getElementById('soundEffect');
 
 var currentGame = new Game();
 
 window.addEventListener('load', getWinsFromStorage);
 gameBoard.addEventListener('click', runGame);
 newPlayBtn.addEventListener('click', newGame);
+gameBoard.addEventListener('mouseenter', function() {
+  if (currentGame.counter === 0 || currentGame.counter === 1) {
+    soundEffect.play();
+  }
+});
 
 function runGame() {
   currentGame.collectSquares(currentGame.currentPlayer);

@@ -17,7 +17,7 @@ bright, unique colors and a spray can cursor.
 - JavaScript
 - HTML
 - CSS
- 
+
 ### Future Additions
 - Add additional token options so each user can choose their own representation.
 - Add a place for the user to enter their name.

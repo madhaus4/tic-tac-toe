@@ -1,6 +1,5 @@
 var gameBoard = document.getElementById('gameBoard');
 var boardTitle = document.getElementById('boardTitle');
-var boardTitlePlayer = document.getElementById('boardTitlePlayer');
 var p1Wins = document.getElementById('numOfWinP1');
 var p2Wins = document.getElementById('numOfWinP2');
 var gameSpaces = document.querySelectorAll('.square');
@@ -86,8 +85,8 @@ function getWinsFromStorage() {
 }
 
 function displayWins() {
-  p1Wins.innerText = `${currentGame.player1.wins}`;
-  p2Wins.innerText = `${currentGame.player2.wins}`;
+  p1Wins.innerText = currentGame.player1.wins;
+  p2Wins.innerText = currentGame.player2.wins;
 }
 
 function clearGameBoard() {

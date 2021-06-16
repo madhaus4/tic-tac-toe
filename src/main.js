@@ -46,15 +46,15 @@ function renderToken() {
 
 function updateBoardTitle() {
   if (!currentGame.hasWinner && currentGame.player1.turn) {
-    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player">C</p><p>'s turn!</p>`;
+    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player token1">C</p><p>'s turn!</p>`;
   } else if (!currentGame.hasWinner && currentGame.player2.turn) {
-    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player">Y</p><p>'s turn!</p>`;
+    boardTitle.innerHTML = `<p>It's</p><p class="board-title-player token2">Y</p><p>'s turn!</p>`;
   }
 
   if (currentGame.hasWinner && !currentGame.player1.turn) {
-    boardTitle.innerHTML = `<p class="board-title-player">C</p><p> WINS!!!</p>`;
+    boardTitle.innerHTML = `<p class="board-title-player token1">C</p><p> WINS!!!</p>`;
   } else if (currentGame.hasWinner && !currentGame.player2.turn) {
-    boardTitle.innerHTML = `<p class="board-title-player">Y</p><p> WINS!!!</p>`;
+    boardTitle.innerHTML = `<p class="board-title-player token2">Y</p><p> WINS!!!</p>`;
   }
 
   if (currentGame.isDraw && currentGame.counter <= 10 && !currentGame.hasWinner) {
@@ -73,7 +73,7 @@ function timeOut() {
     clearGameBoard();
     currentGame = new Game();
     boardTitle.innerHTML = `
-      <p class="board-title-player">C</p>
+      <p class="board-title-player token1">C</p>
       <p>, kick the game off!</p>`;
     enableClick();
   }, 2000);

@@ -10,7 +10,7 @@
 /* ENTIRE PAGE */
 * {
   font-family: Graffiti city;
-  color: navy;
+  color: black;
 }
 
 body {
@@ -37,17 +37,17 @@ h1 > p {
 
 #tic {
   animation-name: popin;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 #tac {
   animation-name: popin;
-  animation-duration: 2.5s;
+  animation-duration: 4s;
 }
 
 #toe {
   animation-name: popin;
-  animation-duration: 3.5s;
+  animation-duration: 6s;
 }
 
 @keyframes popin {
@@ -81,6 +81,7 @@ section {
 
 .center-container {
   width: 50%;
+
 }
 
 .board-title {
@@ -108,14 +109,18 @@ table {
   border-collapse: collapse;
 }
 
+table:hover {
+  cursor: url('assets/paint.png'), auto;
+}
+
 .col-2 {
-  border-left: .5em solid navy;
-  border-right: .5em solid navy;
+  border-left: .5em solid black;
+  border-right: .5em solid black;
 }
 
 .row-2 {
-  border-top: .5em solid navy;
-  border-bottom: .5em solid navy;
+  border-top: .5em solid black;
+  border-bottom: .5em solid black;
 }
 
 table > tbody > tr > td {
@@ -147,4 +152,12 @@ table > tbody > tr > td {
   font-size: 65px;
   font-family: Graffiti City;
   margin: 0;
+}
+
+.token1 {
+  color: #741297;
+}
+
+.token2 {
+  color: #55A42A;
 }

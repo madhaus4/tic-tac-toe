@@ -16,16 +16,16 @@ bright, unique colors and a spray can cursor.
 - JavaScript
 - HTML
 - CSS
+- 
+### Future Additions
+- Add additional token options so each user can choose their own representation.
+- Add a place for the user to enter their name.
 
 ### Reflection
 #### Challenges
 - My main challenge in this project was getting through the logic of the game, primarily tracking the gameboard squares and how to generate a win on each game.
 #### Wins
 - My main win is that I'm happy with my end result.  I tried to start this project slowly and have a plan set.  I also like the styling additions I had time to impliment.  
-
-### Future Additions
-- Add additional token options so each user can choose their own representation.
-- Add a place for the user to enter their name.
 
 ## Video demonstration
 ![recording (3)](https://user-images.githubusercontent.com/76507607/122145098-d64bf480-ce11-11eb-96be-763b9ad40d76.gif)
